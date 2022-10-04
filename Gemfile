@@ -7,6 +7,7 @@ gem 'aws-sdk-s3'
 gem 'bootsnap', require: false
 gem 'cssbundling-rails'
 gem 'figaro'
+gem 'gdpr'
 gem 'image_processing', '~> 1.2'
 gem 'jsbundling-rails'
 gem 'jbuilder'

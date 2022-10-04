@@ -112,6 +112,10 @@ GEM
     ffi (1.15.5)
     figaro (1.2.0)
       thor (>= 0.14.0, < 2)
+    gdpr (1.2.3)
+      js_cookie_rails
+      rails
+      sassc-rails
     globalid (1.0.0)
       activesupport (>= 5.0)
     google-protobuf (3.21.7-x86_64-darwin)
@@ -136,6 +140,8 @@ GEM
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
     jmespath (1.6.1)
+    js_cookie_rails (2.2.0)
+      railties (>= 3.1)
     jsbundling-rails (1.0.3)
       railties (>= 6.0.0)
     kamifusen (1.11.2)
@@ -271,6 +277,7 @@ DEPENDENCIES
   cssbundling-rails
   debug
   figaro
+  gdpr
   image_processing (~> 1.2)
   jbuilder
   jsbundling-rails

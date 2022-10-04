@@ -5,6 +5,7 @@
 #  id         :uuid             not null, primary key
 #  prompt     :text
 #  seed       :string
+#  user       :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  space_id   :uuid             not null

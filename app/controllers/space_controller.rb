@@ -7,6 +7,7 @@ class SpaceController < ApplicationController
   def generate_image
     @image = Image.new(image_params)
     @image.space = @space
+    @image.user = @user
     @image.save
     redirect_to show_image_path(@space.slug, @image.id)
   end
