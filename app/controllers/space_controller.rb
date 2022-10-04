@@ -1,7 +1,8 @@
 class SpaceController < ApplicationController
-  before_action :load_space
+  before_action :load
 
   def index
+    @images = @space.images.ordered.limit(100)
   end
 
   def generate_image
@@ -13,7 +14,11 @@ class SpaceController < ApplicationController
   end
 
   def show_image
-    @image = @space.images.find params[:image_id]
+  end
+
+  def like_image
+    @image.like! @user
+    redirect_to show_image_path(@space.slug, @image.id)
   end
 
   protected
@@ -22,7 +27,8 @@ class SpaceController < ApplicationController
     params.require(:image).permit(:prompt)
   end
 
-  def load_space
+  def load
     @space = Space.find_by slug: params[:space_slug]
+    @image = @space.images.find params[:image_id] if params.has_key? :image_id
   end
 end

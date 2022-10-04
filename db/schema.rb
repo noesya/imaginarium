@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_04_183857) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_04_190458) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -50,7 +50,16 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_04_183857) do
     t.string "seed"
     t.uuid "space_id", null: false
     t.string "user"
+    t.integer "likes_count", default: 0
     t.index ["space_id"], name: "index_images_on_space_id"
+  end
+
+  create_table "likes", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "image_id", null: false
+    t.string "user"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["image_id"], name: "index_likes_on_image_id"
   end
 
   create_table "spaces", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -63,4 +72,5 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_04_183857) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "images", "spaces"
+  add_foreign_key "likes", "images"
 end
