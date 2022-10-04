@@ -1,10 +1,14 @@
-<h1><%= @space.name %></h1>
+<%= content_for :title, @space %>
 
-<div class="mb-4">
-  <%= simple_form_for Image.new, url: generate_image_path do |f| %>
-    <%= f.input :prompt, as: :string %>
-    <%= f.submit class: 'btn btn-primary mt-2' %>
-  <% end %>
+<h1 class="text-center my-3"><%= @space %></h1>
+
+<div class="row mb-4">
+  <div class="offset-md-4 col-md-4">
+    <%= simple_form_for Image.new, url: generate_image_path do |f| %>
+      <%= f.input :prompt, as: :string %>
+      <%= f.submit class: 'btn btn-primary mt-2' %>
+    <% end %>
+  </div>
 </div>
 
 <div class="row g-0">

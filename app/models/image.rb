@@ -24,6 +24,10 @@ class Image < ApplicationRecord
 
   after_create :generate
 
+  def to_s
+    "#{prompt}"
+  end
+
   protected
 
   def generate
