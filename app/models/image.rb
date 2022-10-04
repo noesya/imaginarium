@@ -29,8 +29,12 @@ class Image < ApplicationRecord
 
   scope :ordered, -> { order(likes_count: :desc, created_at: :desc)}
 
+  def liked?(user)
+    likes.where(user: user).exists?
+  end
+
   def like!(user)
-    if likes.where(user: user).exists?
+    if liked?(user)
       likes.where(user: user).destroy_all
     else
       likes.where(user: user).create

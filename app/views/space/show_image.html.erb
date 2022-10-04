@@ -5,8 +5,13 @@
 <div class="text-center">
   <%= image_tag @image.generated %>
   <p><%= @image.prompt %></p>
-  <%= link_to like_image_path(@space.slug, @image.id) do %>
-    <%= @image.likes_count %> likes
+  <%= link_to like_image_path(@space.slug, @image.id), class: 'btn btn-light' do %>  
+    <% if @image.liked? @user %>
+      <i class="bi bi-balloon-heart-fill"></i>
+    <% else %>
+      <i class="bi bi-balloon-heart"></i>
+    <% end %>
+  <%= @image.likes_count %> 
   <% end %>
   <p class="small">User <%= @image.user %></p>
 </div>
