@@ -25,6 +25,8 @@ class Image < ApplicationRecord
 
   after_create :generate
 
+  scope :ordered, -> { order(created_at: :desc)}
+
   def to_s
     "#{prompt}"
   end
