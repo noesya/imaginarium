@@ -2,10 +2,20 @@
 #
 # Table name: images
 #
-#  id         :bigint           not null, primary key
+#  id         :uuid             not null, primary key
 #  prompt     :text
+#  seed       :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  space_id   :uuid             not null
+#
+# Indexes
+#
+#  index_images_on_space_id  (space_id)
+#
+# Foreign Keys
+#
+#  fk_rails_...  (space_id => spaces.id)
 #
 require "test_helper"
 
