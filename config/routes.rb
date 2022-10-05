@@ -5,5 +5,6 @@ Rails.application.routes.draw do
   post ':space_slug/generate' => 'space#generate_image', as: :generate_image 
   get  ':space_slug/:image_id' => 'space#show_image', as: :show_image 
   get  ':space_slug/:image_id/like' => 'space#like_image', as: :like_image 
+  get  ':space_slug/:image_id/blame' => 'space#blame_image', as: :blame_image 
   root 'images#index'
 end

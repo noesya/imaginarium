@@ -2,14 +2,15 @@
 #
 # Table name: images
 #
-#  id          :uuid             not null, primary key
-#  likes_count :integer          default(0)
-#  prompt      :text
-#  seed        :string
-#  user        :string
-#  created_at  :datetime         not null
-#  updated_at  :datetime         not null
-#  space_id    :uuid             not null
+#  id           :uuid             not null, primary key
+#  blames_count :integer          default(0)
+#  likes_count  :integer          default(0)
+#  prompt       :text
+#  seed         :string
+#  user         :string
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#  space_id     :uuid             not null
 #
 # Indexes
 #

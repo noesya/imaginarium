@@ -2,7 +2,7 @@ class SpaceController < ApplicationController
   before_action :load
 
   def index
-    @images = @space.images.ordered.limit(100)
+    @images = @space.images.filtered.limit(100)
   end
 
   def generate_image
@@ -18,6 +18,11 @@ class SpaceController < ApplicationController
 
   def like_image
     @image.like! @user
+    redirect_to show_image_path(@space.slug, @image.id)
+  end
+
+  def blame_image
+    @image.blame! @user
     redirect_to show_image_path(@space.slug, @image.id)
   end
 
