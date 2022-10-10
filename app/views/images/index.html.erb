@@ -2,8 +2,6 @@
 
 <%= image_tag 'logo.svg', class: 'logo' %>
 
-<%= link_to "New image", new_image_path, class: 'position-fixed m-4 btn btn-primary' %>
-
 <div class="row g-0">
   <% @images.each do |image| %>
     <div class="col-md-2">
@@ -14,3 +12,9 @@
   <% end %>
 </div>
 
+<div class="text-center my-3">
+  <h2>Visitez les espaces</h2>
+  <% Space.all.each do |space| %>
+    <%= link_to space, show_space_path(space.slug) %>
+  <% end %>
+</div>
