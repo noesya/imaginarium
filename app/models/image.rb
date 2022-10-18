@@ -31,6 +31,7 @@ class Image < ApplicationRecord
   belongs_to :user, optional: true
   has_many :likes
   has_many :blames
+
   has_one_attached :generated
 
   after_create :generate
@@ -44,11 +45,17 @@ class Image < ApplicationRecord
   end
 
   def like!(user)
-    if liked?(user)
-      likes.where(user: user).destroy_all
-    else
-      likes.where(user: user).create
-    end
+    likes.where(user: user).create
+  end
+  
+  def unlike!(user)
+    likes.where(user: user).destroy_all
+  end
+
+  def like_toggle!(user)
+    debugger
+    liked?(user)  ? unlike!(user)
+                  : like!(user)
   end
 
   def blamed?(user)
