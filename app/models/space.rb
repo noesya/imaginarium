@@ -26,6 +26,6 @@ class Space < ApplicationRecord
   protected
 
   def random_prompt
-    additional_prompt.split('|').sample
+    additional_prompt.to_s.split('|').sample
   end
 end

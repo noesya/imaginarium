@@ -1,17 +1,29 @@
 <%= content_for :title, 'Tableau de bord' %>
+<div class="mb-5">
+  <%= line_chart Image.group_by_day(:created_at, last: 30).count %>
+</div>
 
 <div class="row">
   <% @spaces.each do |space| %>
     <div class="col-lg-3">
       <div class="card">
+        <div class="row g-0">
+          <% space.images.ordered.limit(3).each do |image| %>
+            <div class="col-4">
+              <%= kamifusen_tag image.generated, class: 'img-fluid' %>
+            </div>
+          <% end %>
+        </div>
         <div class="card-body">
           <h2 class="card-title"><%= space %></h2>
           <p>
             <%= space.images.count %> images,
             <%= space.users.count %> utilisateurs
           </p>
-          <i class="bi bi-arrow-right"></i>
-          <%= link_to 'Accéder à l\'espace', [:admin, space], class: 'stretched-link' %>
+          <p class="text-end mb-0">
+            <i class="bi bi-arrow-right"></i>
+            <%= link_to 'Accéder à l\'espace', [:admin, space], class: 'stretched-link' %>
+          </p>
         </div>
       </div>
     </div>
