@@ -3,6 +3,7 @@ class SpaceController < ApplicationController
 
   def index
     @images = @space.images.filtered.limit(48)
+    @questions = @space.questions.ordered
   end
 
   def generate_image

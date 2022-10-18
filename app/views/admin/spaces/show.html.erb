@@ -2,7 +2,13 @@
 
 <%= link_to show_space_url(@space.slug), show_space_url(@space.slug), target: :_blank %>
 
+<h2 class="h4 mt-5">Questions</h2>
+<%= render 'admin/questions/list', questions: @questions %>
+
+<h2 class="h4 mt-5">Images</h2>
 <%= render 'admin/images/list', images: @images %>
+
+<h2 class="h4 mt-5">Utilisateurs</h2>
 <%= render 'admin/users/list', users: @users %>
 
 <% content_for :action_bar_right do %>

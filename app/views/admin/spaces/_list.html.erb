@@ -1,0 +1,20 @@
+<div class="table-responsive">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Nom</th>
+        <th>Images</th>
+        <th>Utilisateurs</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% spaces.each do |space| %>
+        <tr>
+          <td><%= link_to space, [:admin, space] %></td>
+          <td><%= space.images.count %></td>
+          <td><%= space.users.count %></td>
+        </td>
+      <% end %>
+    </tbody>
+  </table>
+</div>

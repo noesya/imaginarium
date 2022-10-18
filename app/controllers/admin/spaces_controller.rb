@@ -8,6 +8,7 @@ class Admin::SpacesController < Admin::ApplicationController
 
   def show
     breadcrumb
+    @questions = @space.questions.ordered
     @images = @space.images.page params[:images_page]
     @users = @space.users.page params[:users_page]
   end
@@ -57,13 +58,11 @@ class Admin::SpacesController < Admin::ApplicationController
 
   private
   
-    # Use callbacks to share common setup or constraints between actions.
     def set_space
       @space = Space.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
     def space_params
-      params.require(:space).permit(:name, :slug)
+      params.require(:space).permit(:name, :slug, :additional_prompt)
     end
 end

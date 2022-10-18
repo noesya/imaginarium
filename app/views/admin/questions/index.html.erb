@@ -1,0 +1,7 @@
+<%= content_for :title, 'Questions' %>
+
+<%= render 'admin/questions/list', questions: @questions %>
+
+<% content_for :action_bar_right do %>
+  <%= link_to "Créer", new_admin_question_path, class: button_classes %>
+<% end %>

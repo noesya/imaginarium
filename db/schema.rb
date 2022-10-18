@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_18_122326) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_18_132644) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -88,11 +88,22 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_18_122326) do
     t.index ["image_id"], name: "index_likes_on_image_id"
   end
 
+  create_table "questions", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "space_id", null: false
+    t.text "text", default: ""
+    t.string "additional_prompt", default: ""
+    t.integer "position", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["space_id"], name: "index_questions_on_space_id"
+  end
+
   create_table "spaces", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "slug"
+    t.string "additional_prompt"
   end
 
   create_table "users", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -109,5 +120,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_18_122326) do
   add_foreign_key "images", "spaces"
   add_foreign_key "images", "users"
   add_foreign_key "likes", "images"
+  add_foreign_key "questions", "spaces"
   add_foreign_key "users", "spaces"
 end

@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
+  resources :questions
   namespace :admin do
-    resources :spaces
+    resources :spaces, :questions
     resources :images, only: [:index, :show]
     resources :users, only: [:index, :show]
     root to: 'dashboard#index'

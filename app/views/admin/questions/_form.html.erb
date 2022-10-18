@@ -1,0 +1,9 @@
+<%= simple_form_for [:admin, question] do |f| %>
+  <%= f.association :space, include_blank: false %>
+  <%= f.input :text %>
+  <%= f.input :additional_prompt %>
+  <%= f.input :position %>
+  <% content_for :action_bar_right do %>
+    <%= submit f %>
+  <% end %>
+<% end %>

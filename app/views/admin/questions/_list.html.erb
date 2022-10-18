@@ -1,0 +1,20 @@
+<div class="table-responsive">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Texte</th>
+        <th>Prompt additionnel</th>
+        <th>Espace</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% questions.each do |question| %>
+        <tr>
+          <td><%= link_to question, [:admin, question] %></td>
+          <td><%= question.additional_prompt %></td>
+          <td><%= question.space %></td>
+        </td>
+      <% end %>
+    </tbody>
+  </table>
+</div>

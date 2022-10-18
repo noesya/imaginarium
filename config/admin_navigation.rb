@@ -8,5 +8,6 @@ SimpleNavigation::Configuration.run do |navigation|
     primary.item :spaces, 'Espaces', admin_spaces_path
     primary.item :images, 'Images', admin_images_path
     primary.item :users, 'Utilisateurs', admin_users_path
+    primary.item :questions, 'Questions', admin_questions_path
   end
 end
