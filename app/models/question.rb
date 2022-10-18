@@ -20,8 +20,10 @@
 #
 class Question < ApplicationRecord
   belongs_to :space
+  has_many :answers
 
   scope :ordered, -> { order(:position) }
+
   def to_s
     "#{text}"
   end

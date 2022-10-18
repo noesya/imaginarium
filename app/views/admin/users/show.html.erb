@@ -2,4 +2,8 @@
 
 <p>Espace : <%= link_to @user.space, [:admin, @user.space] %></p>
 
+<h2 class="h4 mt-5">Images</h2>
 <%= render 'admin/images/list', images: @images %>
+
+<h2 class="h4 mt-5">Réponses</h2>
+<%= render 'admin/answers/list', answers: @answers %>

@@ -9,7 +9,7 @@ class Admin::SpacesController < Admin::ApplicationController
   def show
     breadcrumb
     @questions = @space.questions.ordered
-    @images = @space.images.page params[:images_page]
+    @images = @space.images.ordered_by_date.page params[:images_page]
     @users = @space.users.page params[:users_page]
   end
 

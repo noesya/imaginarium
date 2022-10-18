@@ -6,6 +6,8 @@
         <th>Nom</th>
         <th>Images</th>
         <th>Utilisateurs</th>
+        <th>Questions</th>
+        <th>Réponses</th>
       </tr>
     </thead>
     <tbody>
@@ -14,6 +16,8 @@
           <td><%= link_to space, [:admin, space] %></td>
           <td><%= space.images.count %></td>
           <td><%= space.users.count %></td>
+          <td><%= space.questions.count %></td>
+          <td><%= space.answers.count %></td>
         </td>
       <% end %>
     </tbody>

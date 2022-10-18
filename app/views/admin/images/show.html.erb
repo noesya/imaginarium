@@ -8,7 +8,19 @@
 
 <p><%= link_to show_image_url(@image.space.slug, @image), show_image_url(@image.space.slug, @image), target: :_blank %></p>
 
-<%= image_tag @image.generated, class: 'img-thumbnail' %>
+<div class="row mt-5">
+  <div class="col-md-6 col-xl-4">
+    <%= image_tag @image.generated, class: 'img-fluid img-thumbnail' %>
+  </div>
+  <div class="col-md-6 col-xl-8">
+    <% @image.answers.each do |answer| %>
+      <p>
+        <%= answer.question %>
+        <b><%= answer %></b>
+      </p>
+    <% end %>
+  </div>
+</div>
 
 <div class="row mt-5">
   <div class="col-md-6">

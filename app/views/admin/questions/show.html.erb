@@ -2,6 +2,8 @@
 
 <p>Espace : <%= link_to @question.space, [:admin, @question.space] %></p>
 
+<%= render 'admin/answers/list', answers: @answers %>
+
 <% content_for :action_bar_right do %>
   <%= link_to "Modifier",
               edit_admin_question_path(@question), 

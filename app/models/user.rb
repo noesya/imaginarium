@@ -19,6 +19,7 @@
 class User < ApplicationRecord
   belongs_to :space
   has_many :images
+  has_many :answers
 
   def self.with_cookies(cookies, space)
     key = "user_#{space.slug}"

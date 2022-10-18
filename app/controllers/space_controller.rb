@@ -7,9 +7,19 @@ class SpaceController < ApplicationController
   end
 
   def generate_image
-    @image = Image.new(image_params)
-    @image.space = @space
-    @image.user = @user
+    @image = Image.new  space: @space,
+                        user: @user,
+                        prompt: ''
+    params['question'].each do |key, value|
+      question = Question.find key
+      answer = Answer.create  space: @space,
+                              user: @user,
+                              question: question,
+                              value: value
+      @image.prompt += answer.prompt
+      @image.answers << answer
+    end
+    @image.prompt += @space.prompt
     @image.save
     redirect_to show_image_path(@space.slug, @image.id)
   end
@@ -28,10 +38,6 @@ class SpaceController < ApplicationController
   end
 
   protected
-
-  def image_params
-    params.require(:image).permit(:prompt)
-  end
 
   def load
     @space = Space.find_by slug: params[:space_slug]

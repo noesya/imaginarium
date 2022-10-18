@@ -2,6 +2,8 @@
 
 <%= link_to show_space_url(@space.slug), show_space_url(@space.slug), target: :_blank %>
 
+<p>Prompt additionnel : <%= @space.additional_prompt %></p>
+
 <h2 class="h4 mt-5">Questions</h2>
 <%= render 'admin/questions/list', questions: @questions %>
 

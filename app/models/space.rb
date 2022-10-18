@@ -13,6 +13,11 @@ class Space < ApplicationRecord
   has_many :images
   has_many :users
   has_many :questions
+  has_many :answers
+
+  def prompt
+    " #{additional_prompt}"
+  end
 
   def to_s
     "#{name}"

@@ -8,6 +8,7 @@ class Admin::UsersController < Admin::ApplicationController
   def show
     @user = User.find(params[:id])
     @images = @user.images.page params[:images_page]
+    @answers = @user.answers.page params[:answers_page]
     breadcrumb
   end
 

@@ -6,9 +6,11 @@
   <div class="offset-md-4 col-md-4">
     <%= simple_form_for Image.new, url: generate_image_path do |f| %>
       <% @questions.each do |question| %>
-        <%= question %>
+        <div>
+          <%= question %><br>
+          <input type="text" name="question[<%= question.id %>]">
+        </div>
       <% end %>
-      <%= f.input :prompt, as: :string %>
       <%= f.submit class: 'btn btn-primary mt-2' %>
     <% end %>
   </div>

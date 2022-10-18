@@ -7,6 +7,7 @@ class Admin::QuestionsController < Admin::ApplicationController
   end
   
   def show
+    @answers = @question.answers.page params[:answers_page]
     breadcrumb
   end
   

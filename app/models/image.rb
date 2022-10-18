@@ -31,12 +31,14 @@ class Image < ApplicationRecord
   belongs_to :user, optional: true
   has_many :likes
   has_many :blames
+  has_and_belongs_to_many :answers
 
   has_one_attached :generated
 
   after_create :generate
 
   scope :ordered, -> { order(likes_count: :desc, created_at: :desc)}
+  scope :ordered_by_date, -> { order(created_at: :desc)}
   scope :not_blamed, -> { where('images.blames_count < ?', BAN_AFTER_BLAMES)}
   scope :filtered, -> { not_blamed.ordered }
 
