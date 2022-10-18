@@ -1,6 +1,6 @@
 
 class HomeController < ApplicationController
   def index
-    @images = Image.filtered.limit(96)
+    @images = Image.filtered.limit(48)
   end
 end
