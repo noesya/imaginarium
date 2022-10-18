@@ -28,6 +28,7 @@ module Imaginarium
     end
 
     config.active_storage.variant_processor = :mini_magick
+    config.i18n.default_locale = :fr
 
     # Configuration for the application, engines, and railties goes here.
     #

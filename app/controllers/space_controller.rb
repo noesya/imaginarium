@@ -2,7 +2,7 @@ class SpaceController < ApplicationController
   before_action :load
 
   def index
-    @images = @space.images.filtered.limit(100)
+    @images = @space.images.filtered.limit(96)
   end
 
   def generate_image
