@@ -18,12 +18,12 @@ class SpaceController < ApplicationController
   end
 
   def like_image
-    Like.toggle @image, @user
+    Like.toggle! @image, @user
     redirect_to show_image_path(@space.slug, @image.id)
   end
 
   def blame_image
-    @image.blame! @user
+    Blame.toggle! @image, @user
     redirect_to show_image_path(@space.slug, @image.id)
   end
 

@@ -6,7 +6,7 @@
   <%= image_tag @image.generated, class: 'img-fluid img-thumbnail' %>
   <p><%= @image.prompt %></p>
   <%= link_to like_image_path(@space.slug, @image.id), class: 'btn btn-light' do %>  
-    <% if @image.liked? @user %>
+    <% if @image.liked_by? @user %>
       <i class="bi bi-balloon-heart-fill"></i>
     <% else %>
       <i class="bi bi-balloon-heart"></i>
@@ -14,7 +14,7 @@
     <%= @image.likes_count %> 
   <% end %>
   <%= link_to blame_image_path(@space.slug, @image.id), class: 'btn btn-light' do %>  
-    <% if @image.blamed? @user %>
+    <% if @image.blamed_by? @user %>
       <i class="bi bi-exclamation-circle-fill"></i>
       Vous avez signalé ce contenu comme inapproprié
     <% else %>

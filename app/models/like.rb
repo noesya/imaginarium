@@ -24,9 +24,20 @@ class Like < ApplicationRecord
   after_create :denormalize
   after_destroy :denormalize
 
-  def self.toggle(image, user)
-    puts image.id
-    puts user.id
+  def self.toggle!(image, user)
+    if image.liked_by?(user)
+      unlike!(image, user)
+    else
+      like!(image, user)
+    end
+  end
+
+  def self.like!(image, user)
+    where(image: image, user: user).create
+  end
+  
+  def self.unlike!(image, user)
+    where(image: image, user: user).destroy_all
   end
 
   protected

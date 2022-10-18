@@ -24,6 +24,22 @@ class Blame < ApplicationRecord
   after_create :denormalize
   after_destroy :denormalize
 
+  def self.toggle!(image, user)
+    if image.blamed_by?(user)
+      unblame!(image, user)
+    else
+      blame!(image, user)
+    end
+  end
+
+  def self.blame!(image, user)
+    where(image: image, user: user).create
+  end
+  
+  def self.unblame!(image, user)
+    where(image: image, user: user).destroy_all
+  end
+
   protected
 
   def denormalize

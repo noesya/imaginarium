@@ -40,34 +40,12 @@ class Image < ApplicationRecord
   scope :not_blamed, -> { where('images.blames_count < ?', BAN_AFTER_BLAMES)}
   scope :filtered, -> { not_blamed.ordered }
 
-  def liked?(user)
+  def liked_by?(user)
     likes.where(user: user).exists?
   end
 
-  def like!(user)
-    likes.where(user: user).create
-  end
-  
-  def unlike!(user)
-    likes.where(user: user).destroy_all
-  end
-
-  def like_toggle!(user)
-    debugger
-    liked?(user)  ? unlike!(user)
-                  : like!(user)
-  end
-
-  def blamed?(user)
+  def blamed_by?(user)
     blames.where(user: user).exists?
-  end
-
-  def blame!(user)
-    if blamed?(user)
-      blames.where(user: user).destroy_all
-    else
-      blames.where(user: user).create
-    end
   end
 
   def to_s
