@@ -7,6 +7,7 @@ gem 'aws-sdk-s3'
 gem 'bootsnap', require: false
 gem 'bootstrap'
 gem 'bootstrap5-kaminari-views'
+gem 'bugsnag'
 gem 'breadcrumbs_on_rails'
 gem 'delayed_job_active_record'
 gem 'figaro'
