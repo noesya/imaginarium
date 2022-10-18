@@ -7,11 +7,11 @@
     <title><%= yield :title %></title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <%= stylesheet_link_tag "application" %>
+    <%= stylesheet_link_tag 'application' %>
     <%= favicon_link_tag 'favicon.png' %>
   </head>
   <body class="<%= body_classes %>">
     <%= yield %>
-    <%= javascript_include_tag "application", defer: true %>
+    <%= javascript_include_tag 'application', defer: true %>
   </body>
 </html>
