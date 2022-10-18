@@ -8,6 +8,7 @@ gem 'bootsnap', require: false
 gem 'bootstrap'
 gem 'bootstrap5-kaminari-views'
 gem 'breadcrumbs_on_rails'
+gem 'delayed_job_active_record'
 gem 'figaro'
 gem 'gdpr'
 gem 'image_processing'
