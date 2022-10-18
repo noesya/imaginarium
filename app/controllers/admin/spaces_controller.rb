@@ -8,7 +8,8 @@ class Admin::SpacesController < Admin::ApplicationController
 
   def show
     breadcrumb
-    @images = @space.images.page params[:page]
+    @images = @space.images.page params[:images_page]
+    @users = @space.users.page params[:users_page]
   end
 
   def new

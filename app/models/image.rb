@@ -11,20 +11,24 @@
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
 #  space_id     :uuid             not null
+#  user_id      :uuid
 #
 # Indexes
 #
 #  index_images_on_space_id  (space_id)
+#  index_images_on_user_id   (user_id)
 #
 # Foreign Keys
 #
 #  fk_rails_...  (space_id => spaces.id)
+#  fk_rails_...  (user_id => users.id)
 #
 class Image < ApplicationRecord
 
   BAN_AFTER_BLAMES = 2
 
   belongs_to :space
+  belongs_to :user, optional: true
   has_many :likes
   has_many :blames
   has_one_attached :generated

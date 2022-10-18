@@ -1,0 +1,22 @@
+<p><%= users.total_count %> utilisateurs</p>
+<table class="table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Email</th>
+      <th>Espace</th>
+      <th>Images</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% users.each do |user| %>
+      <tr>
+        <td><%= link_to user, [:admin, user] %></td>
+        <td><%= user.email %></td>
+        <td><%= user.space %></td>
+        <td><%= user.images.count %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</div>
+<%= paginate users, theme: 'bootstrap-5', param_name: :users_page %>

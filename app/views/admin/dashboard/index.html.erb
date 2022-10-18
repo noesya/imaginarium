@@ -6,7 +6,10 @@
       <div class="card">
         <div class="card-body">
           <h2 class="card-title"><%= space %></h2>
-          <p><%= space.images.count %> images</p>
+          <p>
+            <%= space.images.count %> images,
+            <%= space.users.count %> utilisateurs
+          </p>
           <i class="bi bi-arrow-right"></i>
           <%= link_to 'Accéder à l\'espace', [:admin, space], class: 'stretched-link' %>
         </div>

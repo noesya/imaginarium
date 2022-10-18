@@ -1,7 +1,7 @@
 class Admin::ImagesController < Admin::ApplicationController
 
   def index
-    @images = Image.all.page params[:page]
+    @images = Image.all.page params[:images_page]
     breadcrumb
   end
   

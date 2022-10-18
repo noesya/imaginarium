@@ -3,6 +3,7 @@
 <%= link_to show_space_url(@space.slug), show_space_url(@space.slug), target: :_blank %>
 
 <%= render 'admin/images/list', images: @images %>
+<%= render 'admin/users/list', users: @users %>
 
 <% content_for :action_bar_right do %>
   <%= link_to "Modifier",

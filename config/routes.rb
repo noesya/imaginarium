@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :spaces
     resources :images, only: [:index, :show]
+    resources :users, only: [:index, :show]
     root to: 'dashboard#index'
   end
   get  ':space_slug' => 'space#index', as: :show_space

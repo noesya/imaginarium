@@ -1,0 +1,5 @@
+<%= content_for :title, @user %>
+
+<p>Espace : <%= link_to @user.space, [:admin, @user.space] %></p>
+
+<%= render 'admin/images/list', images: @images %>

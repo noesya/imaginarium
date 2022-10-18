@@ -1,5 +1,11 @@
 <%= content_for :title, @image %>
 
 <p>Espace : <%= link_to @image.space, [:admin, @image.space] %></p>
+
+<% if @image.user.present? %>
+  <p>Utilisateur : <%= link_to @image.user, [:admin, @image.user] %></p>
+<% end %>
+
 <p><%= link_to show_image_url(@image.space.slug, @image), show_image_url(@image.space.slug, @image), target: :_blank %></p>
-<%= image_tag @image.generated %>
+
+<%= image_tag @image.generated, class: 'img-thumbnail' %>

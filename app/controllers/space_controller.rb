@@ -34,6 +34,7 @@ class SpaceController < ApplicationController
 
   def load
     @space = Space.find_by slug: params[:space_slug]
+    @user = User.with_cookies cookies, @space
     @image = @space.images.find params[:image_id] if params.has_key? :image_id
   end
 end

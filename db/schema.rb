@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_18_103241) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_18_122326) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -75,7 +75,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_18_103241) do
     t.string "user"
     t.integer "likes_count", default: 0
     t.integer "blames_count", default: 0
+    t.uuid "user_id"
     t.index ["space_id"], name: "index_images_on_space_id"
+    t.index ["user_id"], name: "index_images_on_user_id"
   end
 
   create_table "likes", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -93,9 +95,19 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_18_103241) do
     t.string "slug"
   end
 
+  create_table "users", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "space_id", null: false
+    t.string "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["space_id"], name: "index_users_on_space_id"
+  end
+
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "blames", "images"
   add_foreign_key "images", "spaces"
+  add_foreign_key "images", "users"
   add_foreign_key "likes", "images"
+  add_foreign_key "users", "spaces"
 end
