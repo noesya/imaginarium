@@ -3,7 +3,7 @@
 <h1 class="text-center my-3"><%= link_to @space, show_space_path(@space.slug) %></h1>
 
 <div class="text-center">
-  <%= image_tag @image.generated, class: 'img-fluid' %>
+  <%= image_tag @image.generated, class: 'img-fluid img-thumbnail' %>
   <p><%= @image.prompt %></p>
   <%= link_to like_image_path(@space.slug, @image.id), class: 'btn btn-light' do %>  
     <% if @image.liked? @user %>
@@ -22,5 +22,4 @@
       Signaler ce contenu comme inapproprié
     <% end %>
   <% end %>
-  <p class="small">User <%= @image.user %></p>
 </div>

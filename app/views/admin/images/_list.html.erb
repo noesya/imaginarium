@@ -3,7 +3,7 @@
   <% images.each do |image| %>
     <div class="col-md-2 mb-4">
       <%= link_to [:admin, image] do %>
-        <%= image_tag image.generated, class: 'img-fluid' %>
+        <%= kamifusen_tag image.generated, class: 'img-fluid' %>
       <% end %>
     </div>
   <% end %>
