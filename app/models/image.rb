@@ -48,6 +48,10 @@ class Image < ApplicationRecord
     blames.where(user: user).exists?
   end
 
+  def banned?
+    blames_count >= BAN_AFTER_BLAMES
+  end
+ 
   def to_s
     "#{prompt}"
   end

@@ -14,6 +14,12 @@
   <div class="col-md-6">
     <h2 class="h4 mb-4">Aimé par <%= @image.likes_count %> utilisateurs</h2>
     <table class="table">
+      <thead>
+        <tr>
+          <td>ID</td>
+          <td>Date</td>
+        </tr>
+      </thead>
       <tbody>
         <% @image.likes.each do |like| %>
           <tr>
@@ -24,6 +30,7 @@
                 Utilisateur sans cookie
               <% end %>
             </td>
+            <td><%= t like.created_at %></td>
           </tr>
         <% end %>
       </tbody>
@@ -31,7 +38,16 @@
   </div>
   <div class="col-md-6">
     <h2 class="h4 mb-4">Signalé par <%= @image.blames_count %> utilisateurs</h2>
+    <% if @image.banned? %>
+      <p class="badge text-bg-danger">Image bannie</p>
+    <% end %>
     <table class="table">
+      <thead>
+        <tr>
+          <td>ID</td>
+          <td>Date</td>
+        </tr>
+      </thead>
       <tbody>
         <% @image.blames.each do |blame| %>
           <tr>
@@ -42,6 +58,7 @@
                 Utilisateur sans cookie
               <% end %>
             </td>
+            <td><%= t blame.created_at %></td>
           </tr>
         <% end %>
       </tbody>
