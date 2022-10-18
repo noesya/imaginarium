@@ -1,0 +1,7 @@
+<%= simple_form_for [:admin, space] do |f| %>
+  <%= f.input :name %>
+  <%= f.input :slug %>
+  <% content_for :action_bar_right do %>
+    <%= submit f %>
+  <% end %>
+<% end %>

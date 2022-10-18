@@ -1,0 +1,5 @@
+<%= content_for :title, @image %>
+
+<p>Espace : <%= link_to @image.space, [:admin, @image.space] %></p>
+<p><%= link_to show_image_url(@image.space.slug, @image), show_image_url(@image.space.slug, @image), target: :_blank %></p>
+<%= image_tag @image.generated %>

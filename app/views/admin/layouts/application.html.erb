@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title><%= yield :title %> • Imaginarium</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "admin" %>
+    <%= favicon_link_tag 'favicon.png' %>
+  </head>
+  <body data-layout="fluid" data-sidebar-position="left">
+    <div class="toasts-container" style="position: fixed; top: 20px; right: 20px; z-index: 100000;">
+      <% unless notice.nil? %>
+        <div class="js-notyf-notice d-none">
+          <%= notice %>
+        </div>
+      <% end %>
+      <% unless alert.nil? %>
+        <div class="js-notyf-alert d-none">
+          <%= alert %>
+        </div>
+      <% end %>
+    </div>
+    <div class="wrapper">
+      <%= render 'admin/application/nav' %>
+      <%= render 'admin/application/footer' %>
+      <div class="main">
+        <%= render 'admin/application/top' %>
+        <main class="content">
+          <div class="container-fluid p-0">
+            <div class="d-flex justify-content-between">
+              <h1><%= yield :title %></h1>
+              <p class="text-end pt-1"><%= yield :title_right %></p>
+            </div>
+            <%= yield %>
+          </div>
+        </main>
+      </div>
+    </div>
+    <%= javascript_include_tag "admin", defer: true %>
+  </body>
+</html>

@@ -1,0 +1,16 @@
+<%= content_for :title, @space %>
+
+<%= link_to show_space_url(@space.slug), show_space_url(@space.slug), target: :_blank %>
+
+<%= render 'admin/images/list', images: @images %>
+
+<% content_for :action_bar_right do %>
+  <%= link_to "Modifier",
+              edit_admin_space_path(@space), 
+              class: button_classes %>
+  <%= link_to "Supprimer",
+              [:admin, @space],
+              method: :delete,
+              class: button_classes_danger,
+              data: { confirm: 'Confirmer ?' } %>
+<% end %>

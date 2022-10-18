@@ -1,0 +1,11 @@
+<p><%= images.total_count %> images</p>
+<div class="row">
+  <% images.each do |image| %>
+    <div class="col-md-2 mb-4">
+      <%= link_to [:admin, image] do %>
+        <%= image_tag image.generated, class: 'img-fluid' %>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+<%= paginate @images, theme: 'bootstrap-5' %>
