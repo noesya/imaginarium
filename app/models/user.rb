@@ -21,7 +21,7 @@ class User < ApplicationRecord
   has_many :images
 
   def self.with_cookies(cookies, space)
-    key = "user_#(space.slug}"
+    key = "user_#{space.slug}"
     id = cookies[key]
     if id.present?
       user = where(id: id, space: space).first_or_create
