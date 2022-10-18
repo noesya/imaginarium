@@ -1,21 +1,23 @@
 .home-index
     .welcome
-        position: fixed
-        top: 16.666666vw
-        bottom: 16.666666vw
-        left: 33.3333333vw
-        right: 33.3333333vw
-        z-index: 10
         background: white
+        left: 33.3333333vw
         padding: 100px
+        position: fixed
+        right: 33.3333333vw
         text-align: center
-        height: 400px
-        margin-top: -200px
+        top: 16.666666vw
+        z-index: 10    
+        @include media-breakpoint-down(md)
+            padding: 40px
+            left: 50px
+            right: 50px
+            top: 50px
     .logo
         width: 100%
         height: auto
         filter: invert(1)
-        margin-bottom: 100px
+        margin-bottom: 50px
 
 @font-face
   font-family: "bootstrap-icons";
