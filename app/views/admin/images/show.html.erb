@@ -9,3 +9,42 @@
 <p><%= link_to show_image_url(@image.space.slug, @image), show_image_url(@image.space.slug, @image), target: :_blank %></p>
 
 <%= image_tag @image.generated, class: 'img-thumbnail' %>
+
+<div class="row mt-5">
+  <div class="col-md-6">
+    <h2 class="h4 mb-4">Aimé par <%= @image.likes_count %> utilisateurs</h2>
+    <table class="table">
+      <tbody>
+        <% @image.likes.each do |like| %>
+          <tr>
+            <td>
+              <% if like.user %>
+                <%= link_to like.user, [:admin, like.user] %>
+              <% else %>
+                Utilisateur sans cookie
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <div class="col-md-6">
+    <h2 class="h4 mb-4">Signalé par <%= @image.blames_count %> utilisateurs</h2>
+    <table class="table">
+      <tbody>
+        <% @image.blames.each do |blame| %>
+          <tr>
+            <td>
+              <% if blame.user %>
+                <%= link_to blame.user, [:admin, blame.user] %>
+              <% else %>
+                Utilisateur sans cookie
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
