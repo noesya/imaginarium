@@ -66,7 +66,10 @@ class Image < ApplicationRecord
   protected
 
   def generate
-    artifact = Stability.generate prompt
+    artifact = Stability.generate prompt, {
+      width: 1024,
+      height: 1024
+    }
     self.update_column :seed, artifact.seed 
     io = StringIO.new artifact.binary
     generated.attach  io: io,
