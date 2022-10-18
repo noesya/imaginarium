@@ -1,8 +1,10 @@
 <%= content_for :title, @space %>
 
-<%= link_to show_space_url(@space.slug), show_space_url(@space.slug), target: :_blank %>
+<p><%= link_to show_space_url(@space.slug), show_space_url(@space.slug), target: :_blank %></p>
 
 <p>Prompt additionnel : <%= @space.additional_prompt %></p>
+
+<p>Prompt (aléatoire) : <%= @space.prompt %></p>
 
 <h2 class="h4 mt-5">Questions</h2>
 <%= render 'admin/questions/list', questions: @questions %>

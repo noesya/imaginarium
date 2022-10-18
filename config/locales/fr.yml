@@ -1,0 +1,16 @@
+fr:
+  activerecord:
+    models:
+      space: 
+        one: Espace
+        other: Espaces
+    attributes:
+      space:
+        name: Nom
+        slug: Identifiant
+        additional_prompt: Prompt additionnel
+  simple_form:
+    hints:
+      space:
+        additional_prompt: Pour générer des valeurs aléatoires, utiliser des |
+        slug: Pas d'espaces, pas d'accents

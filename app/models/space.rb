@@ -16,10 +16,16 @@ class Space < ApplicationRecord
   has_many :answers
 
   def prompt
-    " #{additional_prompt}"
+    " #{random_prompt}"
   end
 
   def to_s
     "#{name}"
+  end
+
+  protected
+
+  def random_prompt
+    additional_prompt.split('|').sample
   end
 end
