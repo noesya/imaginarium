@@ -63,6 +63,6 @@ class Admin::SpacesController < Admin::ApplicationController
     end
 
     def space_params
-      params.require(:space).permit(:name, :slug, :additional_prompt)
+      params.require(:space).permit(:name, :domain, :additional_prompt)
     end
 end

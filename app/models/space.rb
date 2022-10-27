@@ -4,8 +4,8 @@
 #
 #  id                :uuid             not null, primary key
 #  additional_prompt :string
+#  domain            :string
 #  name              :string
-#  slug              :string
 #  created_at        :datetime         not null
 #  updated_at        :datetime         not null
 #
@@ -17,6 +17,11 @@ class Space < ApplicationRecord
 
   def prompt
     " #{random_prompt}"
+  end
+
+  def url
+    Rails.env.development?  ? "http://#{domain}:3000"
+                            : "https://#{domain}"
   end
 
   def to_s

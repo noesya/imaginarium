@@ -22,7 +22,7 @@ class User < ApplicationRecord
   has_many :answers
 
   def self.with_cookies(cookies, space)
-    key = "user_#{space.slug}"
+    key = "user_#{space.id}"
     id = cookies[key]
     if id.present?
       user = where(id: id, space: space).first_or_create

@@ -1,6 +1,6 @@
 <%= simple_form_for [:admin, space] do |f| %>
   <%= f.input :name %>
-  <%= f.input :slug %>
+  <%= f.input :domain %>
   <%= f.input :additional_prompt %>
   <% content_for :action_bar_right do %>
     <%= submit f %>

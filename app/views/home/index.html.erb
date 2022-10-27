@@ -1,19 +1,10 @@
-<%= content_for :title, 'Imaginarium' %>
+<%= content_for :title, current_space %>
 
-<div class="welcome">
-  <%= image_tag 'logo.svg', class: 'logo', alt: 'Imaginarium' %>
-  <p>
-    Un projet conçu et développé par 
-    Les Éditions <a href="https://volumique.com/v2/" target="_blank">Volumique</a>
-    et la coopérative <a href="https://www.noesya.coop" target="_blank">noesya</a>,
-    utilisant le moteur de génération d'images <a href="https://stability.ai" target="_blank">Stability.ai</a>.
-  </p>
+<h1 class="text-center my-3"><%= current_space %></h1>
+
+<div class="text-center mb-5">
+  <%= link_to 'Participer', new_image_path, class: 'btn btn-primary' %>
+  <%= link_to 'Voir les images', images_path, class: 'btn btn-primary' %>
 </div>
 
-<div class="row g-0">
-  <% @images.each do |image| %>
-    <div class="col-md-2 col-4">
-      <%= kamifusen_tag image.generated, class: 'img-fluid', alt: image %>
-    </div>
-  <% end %>
-</div>
+<%= render 'images/list', images: @images %>

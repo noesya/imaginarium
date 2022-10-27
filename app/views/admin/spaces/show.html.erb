@@ -1,6 +1,6 @@
 <%= content_for :title, @space %>
 
-<p><%= link_to show_space_url(@space.slug), show_space_url(@space.slug), target: :_blank %></p>
+<p><%= link_to @space.url, @space.url, target: :_blank %></p>
 
 <p>Prompt additionnel : <%= @space.additional_prompt %></p>
 
