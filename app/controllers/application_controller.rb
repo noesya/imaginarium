@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
 
   def current_space
-    @current_space ||= Space.find_by domain: request.domain
+    @current_space ||= Space.find_by domain: request.domain(2)
   end
   helper_method :current_space
 
