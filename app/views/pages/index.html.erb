@@ -1,8 +1,9 @@
 <%= content_for :title, current_space %>
 
 <div class="text-center mb-5">
-  <%= link_to 'Participer', new_image_path, class: 'btn btn-primary' %>
-  <%= link_to 'Voir les images', images_path, class: 'btn btn-primary' %>
+  <%= @home.html_safe %>
+  <p><%= @home_cta_text %></p>
+  <%= link_to @home_cta_button, new_image_path, class: 'btn btn-primary' %>
 </div>
 
 <%= render 'images/list', images: @images %>

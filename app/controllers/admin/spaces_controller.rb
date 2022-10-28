@@ -1,5 +1,5 @@
 class Admin::SpacesController < Admin::ApplicationController
-  before_action :set_space, only: %i[ show edit update destroy ]
+  before_action :set_space, only: %i[ show edit sass update destroy ]
 
   def index
     @spaces = Space.all
@@ -21,6 +21,11 @@ class Admin::SpacesController < Admin::ApplicationController
   def edit
     breadcrumb
     add_breadcrumb 'Modifier'
+  end
+
+  def sass
+    breadcrumb
+    add_breadcrumb 'SASS'
   end
 
   def create

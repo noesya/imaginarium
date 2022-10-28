@@ -25,6 +25,8 @@ class Space < ApplicationRecord
   has_one_attached_deletable :logo
   has_one_attached_deletable :logo_footer
 
+  before_validation :css_save
+
   def prompt
     " #{random_prompt}"
   end
@@ -42,5 +44,9 @@ class Space < ApplicationRecord
 
   def random_prompt
     additional_prompt.to_s.split('|').sample
+  end
+
+  def css_save
+    self.css = sass.blank? ? '' : SassC::Engine.new(sass, syntax: :sass, style: :compressed).render
   end
 end

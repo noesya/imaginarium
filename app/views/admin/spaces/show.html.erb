@@ -23,6 +23,9 @@
   <%= link_to "Modifier",
               edit_admin_space_path(@space), 
               class: button_classes %>
+  <%= link_to "SASS",
+              sass_admin_space_path(@space), 
+              class: button_classes %>
   <%= link_to "Supprimer",
               [:admin, @space],
               method: :delete,
