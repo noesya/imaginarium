@@ -2,15 +2,19 @@
 
 <div class="text-center py-5">
   <%= image_tag @image.generated, class: 'img-fluid img-thumbnail mb-4' %>
+
   <% if @ask_for_pseudo %>
     <%= simple_form_for current_user do |f| %>
       <%= f.input :pseudo %>
       <%= f.submit 'Enregistrer' %>
     <% end %>
   <% end %>
-  <% if @image&.user&.pseudo&.present? %>
-   <p><%= @image.user.pseudo %></p>
-  <% end %>
+
+  <p>
+    <%= @image.prompt_raw %>
+    <%= " par #{ @image.user.pseudo }" if @image&.user&.pseudo&.present? %>
+  </p>
+
   <div class="mb-4">
     <%= link_to like_image_path(@image), class: 'btn btn-light' do %>  
       <% if @image.liked_by? current_user %>
@@ -30,6 +34,7 @@
       <% end %>
     <% end %>
   </div>
+
   <div>
     <a  href="https://www.facebook.com/sharer/sharer.php?u=<%= request.url %>" 
         target="_blank"

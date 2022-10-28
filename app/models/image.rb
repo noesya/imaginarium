@@ -53,6 +53,10 @@ class Image < ApplicationRecord
   def banned?
     blames_count >= BAN_AFTER_BLAMES
   end
+
+  def prompt_raw
+    answers.collect(&:value).join(', ')
+  end
  
   def to_s
     "#{prompt}"

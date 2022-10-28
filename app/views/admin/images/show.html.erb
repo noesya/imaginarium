@@ -6,7 +6,13 @@
   <p>Utilisateur : <%= link_to @image.user, [:admin, @image.user] %></p>
 <% end %>
 
-<p><%= link_to show_image_url(@image.space.slug, @image), show_image_url(@image.space.slug, @image), target: :_blank %></p>
+<p>Prompt complet : <%= @image %></p>
+
+<p>Prompt brut  : <%= @image.prompt_raw %></p>
+
+<% content_for :action_bar_right do %>
+  <%= link_to 'Voir dans le site', image_url(@image, host: @image.space.domain), target: :_blank, class: 'btn btn-primary' %>
+<% end %>
 
 <div class="row mt-5">
   <div class="col-md-6 col-xl-4">
