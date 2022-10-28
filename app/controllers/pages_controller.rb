@@ -1,12 +1,15 @@
-class HomeController < ApplicationController
+class PagesController < ApplicationController
   def index
     if current_space.nil?
       # www.imaginarium.live
       @images = Image.filtered.limit(48)
-      render :generic
+      render :index_no_space
     else
       # Any specific space
       @images = current_space.images.filtered.limit(48)
     end
+  end
+
+  def about
   end
 end

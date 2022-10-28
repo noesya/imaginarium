@@ -28,6 +28,7 @@ gem 'simple-navigation'
 gem 'simple_form'
 gem 'sprockets-rails'
 gem 'stability_sdk'
+gem 'summernote-rails'
 gem 'tzinfo-data', platforms: %i[ mingw mswin x64_mingw jruby ]
 
 group :development, :test do

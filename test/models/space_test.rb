@@ -3,9 +3,15 @@
 # Table name: spaces
 #
 #  id                :uuid             not null, primary key
+#  about             :text
 #  additional_prompt :string
+#  css               :text
 #  domain            :string
+#  home              :text
+#  home_cta_button   :text
+#  home_cta_text     :text
 #  name              :string
+#  sass              :text
 #  created_at        :datetime         not null
 #  updated_at        :datetime         not null
 #

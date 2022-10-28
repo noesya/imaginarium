@@ -11,6 +11,7 @@
     <%= favicon_link_tag 'favicon.png' %>
   </head>
   <body class="<%= body_classes %>">
+    <%= render 'nav' if current_space %>
     <%= yield %>
     <%= javascript_include_tag 'application', defer: true %>
   </body>

@@ -11,5 +11,6 @@ Rails.application.routes.draw do
       get :blame
     end
   end
-  root to: 'home#index'
+  get 'a-propos' => 'pages#about', as: :about
+  root to: 'pages#index'
 end
