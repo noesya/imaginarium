@@ -14,7 +14,9 @@
   </head>
   <body class="<%= body_classes %>">
     <%= render 'nav' if current_space %>
-    <%= yield %>
+    <main>
+      <%= yield %>
+    </main>
     <%= render 'footer' if current_space %>
     <%= javascript_include_tag 'application', defer: true %>
   </body>

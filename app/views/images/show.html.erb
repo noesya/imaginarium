@@ -1,25 +1,33 @@
 <%= content_for :title, @image %>
 
-<h1 class="text-center my-3"><%= link_to current_space, root_path %></h1>
-
-<div class="text-center">
-  <%= image_tag @image.generated, class: 'img-fluid img-thumbnail' %>
-  <p><%= @image.prompt %></p>
-  <%= link_to like_image_path(@image), class: 'btn btn-light' do %>  
-    <% if @image.liked_by? current_user %>
-      <i class="bi bi-balloon-heart-fill"></i>
-    <% else %>
-      <i class="bi bi-balloon-heart"></i>
-    <% end %>
-    <%= @image.likes_count %> 
-  <% end %>
-  <%= link_to blame_image_path(@image), class: 'btn btn-light' do %>  
-    <% if @image.blamed_by? current_user %>
-      <i class="bi bi-exclamation-circle-fill"></i>
-      Vous avez signalé ce contenu comme inapproprié
-    <% else %>
-      <i class="bi bi-exclamation-circle"></i>
-      Signaler ce contenu comme inapproprié
+<div class="text-center py-5">
+  <%= image_tag @image.generated, class: 'img-fluid img-thumbnail mb-4' %>
+  <% if @ask_for_pseudo %>
+    <%= simple_form_for current_user do |f| %>
+      <%= f.input :pseudo %>
+      <%= f.submit 'Enregistrer' %>
     <% end %>
   <% end %>
+  <% if @image&.user&.pseudo&.present? %>
+   <p><%= @image.user.pseudo %></p>
+  <% end %>
+  <div>
+    <%= link_to like_image_path(@image), class: 'btn btn-light' do %>  
+      <% if @image.liked_by? current_user %>
+        <i class="bi bi-balloon-heart-fill"></i>
+      <% else %>
+        <i class="bi bi-balloon-heart"></i>
+      <% end %>
+      <%= @image.likes_count %> 
+    <% end %>
+    <%= link_to blame_image_path(@image), class: 'btn btn-light' do %>  
+      <% if @image.blamed_by? current_user %>
+        <i class="bi bi-exclamation-circle-fill"></i>
+        Vous avez signalé ce contenu comme inapproprié
+      <% else %>
+        <i class="bi bi-exclamation-circle"></i>
+        Signaler ce contenu comme inapproprié
+      <% end %>
+    <% end %>
+  </div>
 </div>

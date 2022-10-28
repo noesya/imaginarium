@@ -30,6 +30,7 @@ class ImagesController < ApplicationController
   end
 
   def show
+    @ask_for_pseudo = current_user.pseudo.blank? && @image.user == current_user 
   end
 
   def like

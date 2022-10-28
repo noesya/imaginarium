@@ -16,6 +16,7 @@ Rails.application.routes.draw do
       get :blame
     end
   end
+  resource :user, only: [:update]
   get 'a-propos' => 'pages#about', as: :about
   get 'mentions-legales' => 'pages#legal', as: :legal
   get 'assets/style' => 'pages#style', constraints: { format: 'css' }

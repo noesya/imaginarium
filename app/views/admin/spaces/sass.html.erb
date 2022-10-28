@@ -1,6 +1,6 @@
 <%= content_for :title, @space %>
 <%= simple_form_for [:admin, @space] do |f| %>
-  <%= f.input :sass, hint: 'Must be indented with 4 spaces' %>
+  <%= f.input :sass, hint: 'Must be indented with 4 spaces', input_html: { rows: 30 } %>
   <% content_for :action_bar_right do %>
     <%= submit f %>
   <% end %>
