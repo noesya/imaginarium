@@ -1,7 +1,11 @@
 <nav class="navbar navbar-expand-md bg-transparent">
   <div class="container-fluid">
     <a class="navbar-brand" href="/">
-      <%= current_space %>
+      <% if current_space.logo.attached? %>
+        <%= image_tag current_space.logo, alt: current_space.to_s %>
+      <% else %>
+        <%= current_space %>
+      <% end %>
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>

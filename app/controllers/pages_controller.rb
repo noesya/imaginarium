@@ -9,7 +9,4 @@ class PagesController < ApplicationController
       @images = current_space.images.filtered.limit(48)
     end
   end
-
-  def about
-  end
 end

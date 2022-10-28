@@ -10,6 +10,7 @@
 #  home              :text
 #  home_cta_button   :text
 #  home_cta_text     :text
+#  legal             :text
 #  name              :string
 #  sass              :text
 #  created_at        :datetime         not null
@@ -20,6 +21,9 @@ class Space < ApplicationRecord
   has_many :users
   has_many :questions
   has_many :answers
+
+  has_one_attached_deletable :logo
+  has_one_attached_deletable :logo_footer
 
   def prompt
     " #{random_prompt}"

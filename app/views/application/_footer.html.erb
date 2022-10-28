@@ -1,0 +1,6 @@
+<footer>
+  <% if current_space.logo_footer.attached? %>
+    <%= image_tag current_space.logo_footer, alt: '', class: 'logo' %>
+  <% end %>
+  <%= link_to 'Mentions légales', legal_path %>
+</footer>

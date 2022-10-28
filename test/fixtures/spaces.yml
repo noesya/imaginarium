@@ -10,6 +10,7 @@
 #  home              :text
 #  home_cta_button   :text
 #  home_cta_text     :text
+#  legal             :text
 #  name              :string
 #  sass              :text
 #  created_at        :datetime         not null

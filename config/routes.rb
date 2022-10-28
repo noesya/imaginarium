@@ -12,5 +12,6 @@ Rails.application.routes.draw do
     end
   end
   get 'a-propos' => 'pages#about', as: :about
+  get 'mentions-legales' => 'pages#legal', as: :legal
   root to: 'pages#index'
 end

@@ -1,7 +1,42 @@
 <%= simple_form_for [:admin, space] do |f| %>
-  <%= f.input :name %>
-  <%= f.input :domain %>
-  <%= f.input :additional_prompt %>
+  <div class="row">
+    <div class="col-md-6 mb-4">
+      <%= f.input :name %>
+    </div>
+    <div class="col-md-6 mb-4">
+      <%= f.input :domain %>
+    </div>
+    <div class="col-md-6 mb-4">
+      <%= f.input :additional_prompt %>
+    </div>
+    <div class="col-md-6 mb-4">
+      <%= f.input :logo,
+                  as: :single_deletable_file,
+                  input_html: { accept: '.jpg,.jpeg,.png,.svg', class: 'mb-4' },
+                  preview: 200 %>
+      <%= f.input :logo_footer,
+                  as: :single_deletable_file,
+                  input_html: { accept: '.jpg,.jpeg,.png,.svg' },
+                  preview: 200 %>
+    </div>
+  </div>
+  <div class="row mt-5">
+    <div class="col-md-6">
+      <%= f.input :home, as: :summernote %>
+    </div>
+    <div class="col-md-6">
+      <%= f.input :home_cta_text, input_html: { class: 'mb-4' } %>
+      <%= f.input :home_cta_button, as: :string %>
+    </div>
+  </div>
+  <div class="row mt-5">
+    <div class="col-md-6">
+      <%= f.input :about, as: :summernote %>
+    </div>
+    <div class="col-md-6">
+      <%= f.input :legal, as: :summernote %>
+    </div>
+  </div>
   <% content_for :action_bar_right do %>
     <%= submit f %>
   <% end %>
