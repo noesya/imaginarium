@@ -2,6 +2,7 @@
 //= require jquery_ujs
 //= require notyf/notyf.min
 //= require summernote/summernote-bs5
+//= require simple_form_bs5_file_input
 //= require appstack/app
 //= require chartkick
 //= require Chart.bundle
