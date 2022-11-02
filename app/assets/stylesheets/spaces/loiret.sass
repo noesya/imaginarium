@@ -31,32 +31,47 @@ body
     --bs-navbar-color: #{$green}
     --bs-nav-link-hover-color: #{$green}
 
+
+// .navbar
+//     background: $blue
+//     .navbar-brand
+
 .navbar
     position: absolute
     top: 0
     left: 0
     width: 100%
-    a
-        &:hover
-            text-decoration: underline
+    @media (min-width: 1280px)
+        a
+            &:hover
+                text-decoration: underline
+        .navbar-brand
+            position: absolute
+            top: 10px
+            z-index: 100
+            img
+                max-width: 30vw
+    @media (max-width: 1280px)
+        .container-fluid
+            align-items: start
+        .navbar-brand
+            img
+                width: 150px
 
-.navbar-brand
-    position: absolute
-    top: 10px
-    z-index: 100
-    img
-        max-width: 30vw
 
 .hero, .content
     .container
-        max-width: 100%
-        padding-left: 33.33333333%
-        padding-right: 33.33333333%
+        @media (min-width: 1280px)
+            max-width: 100%
+            padding-left: 33.33333333%
+            padding-right: 33.33333333%
 
 .hero
     background: $blue
     color: white
     padding-top: 50px
+    @media (max-width: 1280px)
+        padding-top: 150px
 
 .content
     background: #F0F0F0
