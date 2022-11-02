@@ -1,64 +1,67 @@
 <%= content_for :title, @image %>
+<section class="hero">
+  <div class="container">
+    <div class="text-center py-5">
+      <%= image_tag @image.generated, class: 'img-fluid img-thumbnail mb-4' %>
 
-<div class="text-center py-5">
-  <%= image_tag @image.generated, class: 'img-fluid img-thumbnail mb-4' %>
-
-  <% if @ask_for_pseudo %>
-    <%= simple_form_for current_user do |f| %>
-      <%= f.input :pseudo %>
-      <%= f.submit 'Enregistrer' %>
-    <% end %>
-  <% end %>
-
-  <p>
-    <%= @image.prompt_raw %>
-    <%= " par #{ @image.user.pseudo }" if @image&.user&.pseudo&.present? %>
-  </p>
-
-  <div class="mb-4">
-    <%= link_to like_image_path(@image), class: 'btn btn-light' do %>  
-      <% if @image.liked_by? current_user %>
-        <i class="bi bi-balloon-heart-fill"></i>
-      <% else %>
-        <i class="bi bi-balloon-heart"></i>
+      <% if @ask_for_pseudo %>
+        <%= simple_form_for current_user do |f| %>
+          <%= f.input :pseudo %>
+          <%= f.submit 'Enregistrer' %>
+        <% end %>
       <% end %>
-      <%= @image.likes_count %> 
-    <% end %>
-    <%= link_to blame_image_path(@image), class: 'btn btn-light' do %>  
-      <% if @image.blamed_by? current_user %>
-        <i class="bi bi-exclamation-circle-fill"></i>
-        Vous avez signalé ce contenu comme inapproprié
-      <% else %>
-        <i class="bi bi-exclamation-circle"></i>
-        Signaler ce contenu comme inapproprié
-      <% end %>
-    <% end %>
-  </div>
 
-  <div>
-    <a  href="https://www.facebook.com/sharer/sharer.php?u=<%= request.url %>" 
-        target="_blank"
-        rel="noopener"
-        class="btn btn-light" 
-        title="Partager sur Facebook - lien externe">
-      <i class="bi bi-facebook"></i>
-      <span>Facebook</span>
-    </a>
-    <a  href="https://www.linkedin.com/sharing/share-offsite/?url=<%= request.url %>"
-        target="_blank"
-        rel="noopener"
-        class="btn btn-light" 
-        title="Partager sur Linkedin - lien externe">
-      <i class="bi bi-linkedin"></i>
-      <span>Linkedin</span>
-    </a>
-    <a  href="https://twitter.com/intent/tweet?text=<%= request.url %>"
-        target="_blank" 
-        rel="noopener" 
-        class="btn btn-light" 
-        title="Partager sur Twitter - lien externe">
-      <i class="bi bi-twitter"></i>
-      <span>Twitter</span>
-    </a>
+      <p>
+        <%= @image.prompt_raw %>
+        <%= " par #{ @image.user.pseudo }" if @image&.user&.pseudo&.present? %>
+      </p>
+
+      <div class="mb-4">
+        <%= link_to like_image_path(@image), class: 'btn btn-light' do %>  
+          <% if @image.liked_by? current_user %>
+            <i class="bi bi-balloon-heart-fill"></i>
+          <% else %>
+            <i class="bi bi-balloon-heart"></i>
+          <% end %>
+          <%= @image.likes_count %> 
+        <% end %>
+        <%= link_to blame_image_path(@image), class: 'btn btn-light' do %>  
+          <% if @image.blamed_by? current_user %>
+            <i class="bi bi-exclamation-circle-fill"></i>
+            Vous avez signalé ce contenu comme inapproprié
+          <% else %>
+            <i class="bi bi-exclamation-circle"></i>
+            Signaler ce contenu comme inapproprié
+          <% end %>
+        <% end %>
+      </div>
+
+      <div>
+        <a  href="https://www.facebook.com/sharer/sharer.php?u=<%= request.url %>" 
+            target="_blank"
+            rel="noopener"
+            class="btn btn-light" 
+            title="Partager sur Facebook - lien externe">
+          <i class="bi bi-facebook"></i>
+          <span>Facebook</span>
+        </a>
+        <a  href="https://www.linkedin.com/sharing/share-offsite/?url=<%= request.url %>"
+            target="_blank"
+            rel="noopener"
+            class="btn btn-light" 
+            title="Partager sur Linkedin - lien externe">
+          <i class="bi bi-linkedin"></i>
+          <span>Linkedin</span>
+        </a>
+        <a  href="https://twitter.com/intent/tweet?text=<%= request.url %>"
+            target="_blank" 
+            rel="noopener" 
+            class="btn btn-light" 
+            title="Partager sur Twitter - lien externe">
+          <i class="bi bi-twitter"></i>
+          <span>Twitter</span>
+        </a>
+      </div>
+    </div>
   </div>
-</div>
+</section>
