@@ -8,16 +8,16 @@
 
 <section class="content">
   <div class="container py-5">
-    <%= simple_form_for @image, :html=> { class: 'form' } do |f| %>
+    <%= simple_form_for @image, :html=> { class: 'form js-form-steps', 'data-step-index': '1' } do |f| %>
       <% @questions.each_with_index do |question, index| %>
-        <fieldset id="<%= question.id %>">
+        <fieldset id="<%= question.id %>" class="js-step <% if index == 0 %> is-visible<% end %>">
           <label for="<%= question.id %>-input" class="form-label">
             <%= (index + 1) %>. <%= question %>
           </label>
           <div class="d-flex">
             <input type="text" id="<%= question.id %>-input" name="question[<%= question.id %>]" class="form-control me-3">
             <% if index < (@questions.count - 1) %>
-              <a href="<%= @questions[index + 1].id %>" class="btn btn-primary btn-sm js-next"><%= t('simple_form.validate') %></a>
+              <span class="btn btn-primary btn-sm" data-show-step="<%= (index + 1) %>"><%= t('simple_form.validate') %></span>
             <% else %>
               <%= f.submit class: 'btn btn-primary btn-sm' %>
             <% end %>
@@ -27,7 +27,7 @@
 
       <ol class="progression mt-3">
         <% @questions.each_with_index do |question, index| %>
-          <li><%= (index + 1) %></li>
+          <li data-show-step="<%= index %>"><%= (index + 1) %></li>
         <% end %>
       </ol>
     <% end %>

@@ -1,15 +1,33 @@
 .form
     .progression
+        --form-nav-bg: white
+        --form-nav-color: black
+        --form-nav-active-bg: black
+        --form-nav-active-color: white
         list-style: none
         display: flex
         padding-left: 0
         li
-            background: white
-            border: 2px solid black
+            background: var(--form-nav-bg)
+            border: 2px solid var(--form-nav-color)
             border-radius: 50%
+            color: var(--form-nav-color)
+            cursor: pointer
             font-size: 14px
             height: 20px
             line-height: 16px
             margin-right: 10px
             text-align: center
             width: 20px
+            transition: background 0.35s, color 0.35s
+
+#new_image
+    fieldset
+        display: none
+        &.is-visible
+            display: block
+    @for $i from 0 through 5
+        &[data-step-index="#{$i}"]
+            .progression li:nth-child(#{$i})
+                background: var(--form-nav-active-bg)
+                color: var(--form-nav-active-color)
