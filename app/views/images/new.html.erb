@@ -2,12 +2,15 @@
 
 <div class="row mb-4">
   <div class="offset-md-4 col-md-4">
-    <%= simple_form_for @image do |f| %>
+    <%= simple_form_for @image, :html=> { class: 'form' } do |f| %>
       <% @questions.each do |question| %>
-        <div>
-          <%= question %><br>
-          <input type="text" name="question[<%= question.id %>]">
-        </div>
+        <fieldset>
+          <label for="<%= question.id %>">
+            <%= question %>
+          </label>
+          <input type="text" id="<%= question.id %>" name="question[<%= question.id %>]">
+          <button class="btn">Valider</button>
+        </fieldset>
       <% end %>
       <%= f.submit class: 'btn btn-primary mt-2' %>
     <% end %>

@@ -1,9 +1,18 @@
 <%= content_for :title, current_space %>
 
-<div class="text-center mb-5">
-  <%= @home.html_safe %>
-  <p><%= @home_cta_text %></p>
-  <%= link_to @home_cta_button, new_image_path, class: 'btn btn-primary' %>
-</div>
+<section class="hero">
+  <div class="container py-5">
+    <%= @home.html_safe %>
+  </div>
+</section>
 
-<%= render 'images/list', images: @images %>
+<section class="new-image">
+  <div class="container py-5">
+    <p><%= @home_cta_text %></p>
+    <%= link_to @home_cta_button, new_image_path, class: 'btn btn-primary mt-3' %>
+  </div>
+</section>
+
+<section class="list">
+  <%= render 'images/list', images: @images %>
+</section>
