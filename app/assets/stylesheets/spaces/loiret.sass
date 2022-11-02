@@ -27,13 +27,18 @@ body
         --bs-btn-padding-y: 5px
         --bs-btn-padding-x: 15px
 
-.navbar
+.navbar-nav
     --bs-navbar-color: #{$green}
     --bs-nav-link-hover-color: #{$green}
+
+.navbar
     position: absolute
     top: 0
     left: 0
     width: 100%
+    a
+        &:hover
+            text-decoration: underline
 
 .navbar-brand
     position: absolute
@@ -60,12 +65,9 @@ body
     input
         border: 3px solid $border-color
         border-radius: 30px
+    .progression
+        --form-nav-bg: transparent
+        --form-nav-color: #{$blue}
+        --form-nav-active-bg: #{$blue}
+        --form-nav-active-color: white
 
-.progression
-    --form-nav-bg: transparent
-    --form-nav-color: #{$blue}
-    --form-nav-active-bg: #{$blue}
-    --form-nav-active-color: white
-    li
-        border-color: $border-color
-    
