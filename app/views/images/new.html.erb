@@ -17,7 +17,7 @@
           <div class="d-flex">
             <input type="text" id="<%= question.id %>-input" name="question[<%= question.id %>]" class="form-control me-3">
             <% if index < (@questions.count - 1) %>
-              <span class="btn btn-primary btn-sm" data-show-step="<%= (index + 1) %>"><%= t('simple_form.validate') %></span>
+              <span class="btn btn-primary btn-sm" data-show-step="<%= (index + 1) %>"><%= t('form.validate') %></span>
             <% else %>
               <%= f.submit class: 'btn btn-primary btn-sm' %>
             <% end %>

@@ -8,6 +8,8 @@ $border-color: #939AC1
 body
     --bs-body-color: #{$text-blue}
     --bs-body-font-size: 22px
+    --bs-link-color: #{$green}
+    --bs-link-hover-color: #{$green}
 
 .btn
     --bs-btn-border-width: 3px
@@ -31,18 +33,17 @@ body
     --bs-navbar-color: #{$green}
     --bs-nav-link-hover-color: #{$green}
 
-
-// .navbar
-//     background: $blue
-//     .navbar-brand
-
 .navbar
     position: absolute
     top: 0
     left: 0
     width: 100%
-    @media (min-width: 1280px)
+    .images-index &
+        position: relative
+        background-color: $blue
+    @media (min-width: 1200px)
         a
+            text-decoration-thickness: 2px
             &:hover
                 text-decoration: underline
         .navbar-brand
@@ -51,26 +52,45 @@ body
             z-index: 100
             img
                 max-width: 30vw
-    @media (max-width: 1280px)
+    @media (max-width: 1200px)
         .container-fluid
             align-items: start
         .navbar-brand
             img
                 width: 150px
+    @media (max-width: 768px)
+        .navbar-collapse
+            position: absolute
+            right: 0
+            background: $blue
+            text-align: right
+            padding: 30px
+            top: 60px
+            z-index: 100
 
+.navbar-toggler
+    width: 44px
+    height: 44px
+    background: white
+    padding: 0
+    border-radius: 50%
 
 .hero, .content
     .container
-        @media (min-width: 1280px)
+        @media (min-width: 1200px)
             max-width: 100%
             padding-left: 33.33333333%
             padding-right: 33.33333333%
+    p
+        b
+            color: $green
+            font-weight: normal
 
 .hero
     background: $blue
     color: white
     padding-top: 50px
-    @media (max-width: 1280px)
+    @media (max-width: 1200px)
         padding-top: 150px
 
 .content
@@ -85,4 +105,8 @@ body
         --form-nav-color: #{$blue}
         --form-nav-active-bg: #{$blue}
         --form-nav-active-color: white
+
+.like-action
+    text-decoration: none
+    color: white
 
