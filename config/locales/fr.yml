@@ -14,3 +14,4 @@ fr:
       space:
         additional_prompt: Pour générer des valeurs aléatoires, utiliser des |
         slug: Pas d'espaces, pas d'accents
+    validate: valider

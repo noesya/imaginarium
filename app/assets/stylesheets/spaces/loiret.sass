@@ -1,32 +1,39 @@
 // space variable
 $blue: #283583
 $green: #60FE00
+$text-blue: #1e448b
+$border-color: #939AC1
 
 // bootstrap variables
 body
+    --bs-body-color: #{$text-blue}
     --bs-body-font-size: 22px
 
 .btn
-    --bs-btn-border-width: 0px
+    --bs-btn-border-width: 3px
 
 .btn-primary
     --bs-btn-color: #{$green}
     --bs-btn-bg: #{$blue}
-    --bs-btn-border-color: #{$blue}
+    --bs-btn-border-color: #{$border-color}
+    --bs-btn-hover-border-color: #{$border-color}
     --bs-btn-hover-color: #{$blue}
     --bs-btn-hover-bg: #{$green}
-    --bs-btn-padding-y: 10px
-    --bs-btn-padding-x: 30px
     --bs-btn-border-radius: 30px
     --bs-btn-font-size: 18px
+    --bs-btn-padding-y: 10px
+    --bs-btn-padding-x: 30px
+    &.btn-sm
+        --bs-btn-padding-y: 5px
+        --bs-btn-padding-x: 15px
 
 .navbar
+    --bs-navbar-color: #{$green}
+    --bs-nav-link-hover-color: #{$green}
     position: absolute
     top: 0
     left: 0
     width: 100%
-    a
-        color: $green
 
 .navbar-brand
     position: absolute
@@ -35,14 +42,25 @@ body
     img
         max-width: 30vw
 
-.pages-index
-    .hero, .new-image
-        .container
-            max-width: 100%
-            padding-left: 33.33333333%
-            padding-right: 33.33333333%
-    .hero
-        background: $blue
-        color: white
-        padding-top: 50px
-    
+.hero, .content
+    .container
+        max-width: 100%
+        padding-left: 33.33333333%
+        padding-right: 33.33333333%
+
+.hero
+    background: $blue
+    color: white
+    padding-top: 50px
+
+.content
+    background: #F0F0F0
+
+.form
+    input
+        border: 3px solid $border-color
+        border-radius: 30px
+
+.progression
+    li
+        border-color: $border-color
