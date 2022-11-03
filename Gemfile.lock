@@ -147,12 +147,16 @@ GEM
       sassc-rails
     globalid (1.0.0)
       activesupport (>= 5.0)
+    google-protobuf (3.21.9)
     google-protobuf (3.21.9-x86_64-darwin)
     google-protobuf (3.21.9-x86_64-linux)
     googleapis-common-protos-types (1.4.0)
       google-protobuf (~> 3.14)
     groupdate (6.1.0)
       activesupport (>= 5.2)
+    grpc (1.50.0)
+      google-protobuf (~> 3.21)
+      googleapis-common-protos-types (~> 1.0)
     grpc (1.50.0-x86_64-darwin)
       google-protobuf (~> 3.21)
       googleapis-common-protos-types (~> 1.0)
@@ -219,6 +223,8 @@ GEM
     net-smtp (0.3.2)
       net-protocol
     nio4r (2.5.8)
+    nokogiri (1.13.9-arm64-darwin)
+      racc (~> 1.4)
     nokogiri (1.13.9-x86_64-darwin)
       racc (~> 1.4)
     nokogiri (1.13.9-x86_64-linux)
@@ -321,6 +327,7 @@ GEM
     zeitwerk (2.6.1)
 
 PLATFORMS
+  arm64-darwin-21
   x86_64-darwin-21
   x86_64-linux
 

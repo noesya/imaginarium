@@ -1,17 +1,37 @@
 <%= content_for :title, @image %>
 
-<div class="row mb-4">
-  <div class="offset-md-4 col-md-4">
-    <%= simple_form_for @image do |f| %>
-      <% @questions.each do |question| %>
-        <div>
-          <%= question %><br>
-          <input type="text" name="question[<%= question.id %>]">
-        </div>
+<section class="hero">
+  <div class="container py-5">
+    <%= @current_space.home.to_s.html_safe %>
+  </div>
+</section>
+
+<section class="content">
+  <div class="container py-5">
+    <%= simple_form_for @image, :html=> { class: 'form js-form-steps', 'data-step-index': '1' } do |f| %>
+      <% @questions.each_with_index do |question, index| %>
+        <fieldset id="<%= question.id %>" class="js-step <% if index == 0 %> is-visible<% end %>">
+          <label for="<%= question.id %>-input" class="form-label">
+            <%= (index + 1) %>. <%= question %>
+          </label>
+          <div class="d-flex">
+            <input type="text" id="<%= question.id %>-input" name="question[<%= question.id %>]" class="form-control me-3">
+            <% if index < (@questions.count - 1) %>
+              <span class="btn btn-primary btn-sm" data-show-step="<%= (index + 1) %>"><%= t('form.validate') %></span>
+            <% else %>
+              <%= f.submit class: 'btn btn-primary btn-sm' %>
+            <% end %>
+          </div>
+        </fieldset>
       <% end %>
-      <%= f.submit class: 'btn btn-primary mt-2' %>
+
+      <ol class="progression mt-3">
+        <% @questions.each_with_index do |question, index| %>
+          <li data-show-step="<%= index %>"><%= (index + 1) %></li>
+        <% end %>
+      </ol>
     <% end %>
   </div>
-</div>
+</section>
 
 <%= render 'images/list', images: @images %>

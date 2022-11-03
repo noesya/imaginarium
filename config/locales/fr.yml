@@ -14,3 +14,16 @@ fr:
       space:
         additional_prompt: Pour générer des valeurs aléatoires, utiliser des |
         slug: Pas d'espaces, pas d'accents
+  form: 
+    validate: valider
+    publish: publier
+    pseudo:
+      placeholder: votre pseudo
+  image:
+    show:
+      report: 
+        action: Signaler ce contenu comme inapproprié
+        validation: Vous avez signalé ce contenu comme inapproprié
+      share_html: >
+        <b>Partagez-la !</b>
+        Vous souhaitez la partager sur les réseaux sociaux ?

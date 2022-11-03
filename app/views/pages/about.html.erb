@@ -1,10 +1,8 @@
 <%= content_for :title, 'À propos' %>
 <%= content_for :title, 'Mentions légales' %>
 
-<div class="container">
-  <div class="row">
-    <div class="offset-lg-3 col-lg-6">
-      <%= @about.html_safe %>
-    </div>
+<section class="hero">
+  <div class="container py-5">
+    <%= @about.html_safe %>
   </div>
-</div>
+</section>
