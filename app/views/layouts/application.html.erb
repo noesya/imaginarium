@@ -11,6 +11,7 @@
     <% if current_space %>
       <link rel="stylesheet" type="text/css" href="/assets/style.css" media="all">
     <% end %>
+    <%= stylesheet_link_tag 'dev' if Rails.env.development? %>
   </head>
   <body class="<%= body_classes %>">
     <%= render 'nav' if current_space %>
