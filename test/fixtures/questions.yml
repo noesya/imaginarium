@@ -3,6 +3,7 @@
 # Table name: questions
 #
 #  id                :uuid             not null, primary key
+#  active            :boolean          default(TRUE)
 #  additional_prompt :string           default("")
 #  position          :integer          default(0)
 #  text              :text             default("")
