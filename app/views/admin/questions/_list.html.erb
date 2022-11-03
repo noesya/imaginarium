@@ -6,6 +6,7 @@
         <th>Texte</th>
         <th>Prompt additionnel</th>
         <th>Espace</th>
+        <th>Active</th>
       </tr>
     </thead>
     <tbody>
@@ -14,6 +15,7 @@
           <td><%= link_to question, [:admin, question] %></td>
           <td><%= question.additional_prompt %></td>
           <td><%= question.space %></td>
+          <td><%= question.active %></td>
         </td>
       <% end %>
     </tbody>

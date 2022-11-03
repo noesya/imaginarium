@@ -61,6 +61,6 @@ class Admin::QuestionsController < Admin::ApplicationController
   end
 
   def question_params
-    params.require(:question).permit(:space_id, :text, :additional_prompt, :position)
+    params.require(:question).permit(:space_id, :text, :additional_prompt, :position, :active)
   end
 end

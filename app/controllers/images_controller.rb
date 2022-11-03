@@ -7,7 +7,7 @@ class ImagesController < ApplicationController
 
   def new
     @images = current_space.images.filtered.limit(48)
-    @questions = current_space.questions.ordered
+    @questions = current_space.questions.active.ordered
     @image = Image.new
   end
 
