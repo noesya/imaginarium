@@ -19,7 +19,7 @@
             <% if index < (@questions.count - 1) %>
               <span class="btn btn-primary btn-sm" data-show-step="<%= (index + 1) %>"><%= t('form.validate') %></span>
             <% else %>
-              <%= f.submit class: 'btn btn-primary btn-sm' %>
+              <%= f.submit t('image.create.submit'), class: 'btn btn-primary btn-sm' %>
             <% end %>
           </div>
         </fieldset>

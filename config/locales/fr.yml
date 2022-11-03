@@ -20,6 +20,8 @@ fr:
     pseudo:
       placeholder: votre pseudo
   image:
+    create:
+      submit: Créer une image
     show:
       report: 
         action: Signaler ce contenu comme inapproprié
