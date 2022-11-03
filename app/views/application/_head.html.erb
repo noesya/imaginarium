@@ -15,6 +15,7 @@
 
     <% if content_for(:image).present? %>
       <meta property="og:image" content="<%= yield :image %>" />
+      <meta name="twitter:image" content="<%= yield :image %>" />
       <meta name="twitter:image:src" content="<%= yield :image %>" />
     <% end %>
 
