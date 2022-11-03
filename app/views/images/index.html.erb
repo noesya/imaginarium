@@ -1,3 +1,7 @@
 <%= content_for :title, current_space %>
 
 <%= render 'images/list', images: @images %>
+
+<div class="p-4 pb-2 bg-light">
+  <%= paginate @images, theme: 'bootstrap-5' %>
+</div>

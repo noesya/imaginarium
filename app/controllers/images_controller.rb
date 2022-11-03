@@ -2,7 +2,7 @@ class ImagesController < ApplicationController
   before_action :load
 
   def index
-    @images = current_space.images.filtered.limit(200)
+    @images = current_space.images.filtered.page(params[:page]).per(96)
   end
 
   def new
