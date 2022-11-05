@@ -64,7 +64,9 @@ class Image < ApplicationRecord
   end
  
   def to_s
-    "#{prompt}"
+    string = prompt_raw
+    string += " par #{ user.pseudo }" if self&.user&.pseudo&.present?
+    string
   end
 
   protected

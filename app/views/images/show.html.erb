@@ -1,15 +1,13 @@
-<%= content_for :title, @image.prompt_raw %>
+<%= content_for :title, @image.to_s %>
 <%= content_for :image, @image.shareable.url %>
+
 <section class="hero">
   <div class="container">
     <div class="py-5 text-center">
 
       <figure>
-        <%= image_tag @image.generated, class: 'img-fluid img-thumbnail mb-4' %>
-        <figcaption>
-          <%= @image.prompt_raw %>
-          <%= " par #{ @image.user.pseudo }" if @image&.user&.pseudo&.present? %>
-        </figcaption>
+        <%= kamifusen_tag @image.generated, class: 'img-fluid img-thumbnail mb-4' %>
+        <figcaption><%= @image.to_s %></figcaption>
       </figure>
 
       <% if @ask_for_pseudo %>
