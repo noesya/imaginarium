@@ -43,6 +43,10 @@ class ImagesController < ApplicationController
     redirect_to image_path(@image)
   end
 
+  def share
+    redirect_to @image.share, allow_other_host: true
+  end
+
   protected
 
   def load

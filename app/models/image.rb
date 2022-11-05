@@ -34,6 +34,7 @@ class Image < ApplicationRecord
   has_and_belongs_to_many :answers
 
   has_one_attached :generated
+  has_one_attached :shareable
 
   after_create :generate
 
@@ -57,6 +58,11 @@ class Image < ApplicationRecord
   def prompt_raw
     answers.collect(&:value).join(', ')
   end
+
+  def share
+    create_shareable unless shareable.attached?
+    shareable.url
+  end
  
   def to_s
     "#{prompt}"
@@ -70,6 +76,20 @@ class Image < ApplicationRecord
     io = StringIO.new artifact.binary
     generated.attach  io: io,
                       filename: 'generated.png',
+                      content_type: 'image/png'
+  end
+
+  def create_shareable
+    image = ChunkyPNG::Image.from_blob generated.download
+    if space.share_overlay.attached?
+      overlay  = ChunkyPNG::Image.from_blob space.share_overlay.download
+      image.compose! overlay
+    end
+    io = StringIO.new
+    io.puts image.to_datastream.to_blob
+    io.rewind
+    shareable.attach  io: io,
+                      filename: 'shareable.png',
                       content_type: 'image/png'
   end
 end

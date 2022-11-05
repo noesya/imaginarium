@@ -24,6 +24,7 @@ class Space < ApplicationRecord
 
   has_one_attached_deletable :logo
   has_one_attached_deletable :logo_footer
+  has_one_attached_deletable :share_overlay
 
   before_validation :css_save
 

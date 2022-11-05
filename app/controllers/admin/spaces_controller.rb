@@ -75,7 +75,8 @@ class Admin::SpacesController < Admin::ApplicationController
               :about, :legal, 
               :sass, 
               :logo, :logo_delete,
-              :logo_footer, :logo_footer_delete
+              :logo_footer, :logo_footer_delete,
+              :share_overlay, :share_overlay_delete
             )
     end
 end

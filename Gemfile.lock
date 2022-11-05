@@ -125,6 +125,7 @@ GEM
       xpath (~> 3.2)
     chartkick (4.2.1)
     childprocess (4.1.0)
+    chunky_png (1.4.0)
     concurrent-ruby (1.1.10)
     crass (1.0.6)
     debug (1.6.3)
@@ -342,6 +343,7 @@ DEPENDENCIES
   bugsnag
   capybara
   chartkick
+  chunky_png
   debug
   delayed_job_active_record
   figaro

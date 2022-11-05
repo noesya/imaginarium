@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     member do
       get :like
       get :blame
+      get :share
     end
   end
   resource :user, only: [:update]
