@@ -13,7 +13,7 @@
     <meta property="og:site_name" content="<%= current_space.to_s || 'Imaginarium' %>" />
     <meta property="og:type" content="website" />
 
-    <% if @image %>
+    <% if @image && @image.persisted? %>
       <meta property="og:image" content="<%= @image.shareable.variant(resize_to_fill: [1200, 630, gravity: 'north']).processed.url %>" />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
