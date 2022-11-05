@@ -59,9 +59,8 @@ class Image < ApplicationRecord
     answers.collect(&:value).join(', ')
   end
 
-  def share
+  def prepare_shareable_image!
     create_shareable unless shareable.attached?
-    shareable.url
   end
  
   def to_s

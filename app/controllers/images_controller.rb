@@ -30,6 +30,7 @@ class ImagesController < ApplicationController
   end
 
   def show
+    @image.prepare_shareable_image!
     @ask_for_pseudo = current_user.pseudo.blank? && @image.user == current_user 
   end
 
@@ -41,10 +42,6 @@ class ImagesController < ApplicationController
   def blame
     Blame.toggle! @image, current_user
     redirect_to image_path(@image)
-  end
-
-  def share
-    redirect_to @image.share, allow_other_host: true
   end
 
   protected
