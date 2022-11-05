@@ -81,6 +81,7 @@ class Image < ApplicationRecord
 
   def create_shareable
     image = ChunkyPNG::Image.from_blob generated.download
+    image.resample_nearest_neighbor! 1024, 1024
     if space.share_overlay.attached?
       overlay  = ChunkyPNG::Image.from_blob space.share_overlay.download
       image.compose! overlay
