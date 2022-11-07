@@ -69,7 +69,7 @@ class Image < ApplicationRecord
     string
   end
 
-  protected
+  # protected
 
   def prepare
     prepare_generated unless generated.attached?

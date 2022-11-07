@@ -7,6 +7,12 @@ namespace :app do
     sh 'rails server'
   end
 
+  task fix: :environment do
+    Image.find_each do |image|
+      image.prepare unless image.ready?
+    end
+  end
+
   desc 'Get DB'
   namespace :db do
     desc 'Get database from Scalingo'
