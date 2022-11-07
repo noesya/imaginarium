@@ -60,7 +60,11 @@ class Image < ApplicationRecord
   end
 
   def ready?
-    persisted? && generated.attached? && shareable.attached?
+    persisted? && 
+    generated.attached? && 
+    generated.analyzed? && 
+    shareable.attached? &&
+    shareable.analyzed?
   end
  
   def to_s
