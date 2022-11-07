@@ -36,7 +36,7 @@ class Image < ApplicationRecord
   has_one_attached :generated
   has_one_attached :shareable
 
-  after_create :generate
+  after_create :prepare
 
   scope :ordered, -> { order(likes_count: :desc, created_at: :desc)}
   scope :ordered_by_date, -> { order(created_at: :desc)}
@@ -59,8 +59,8 @@ class Image < ApplicationRecord
     answers.collect(&:value).join(', ')
   end
 
-  def prepare_shareable_image!
-    create_shareable unless shareable.attached?
+  def ready?
+    persisted? && generated.attached? && shareable.attached?
   end
  
   def to_s
@@ -71,7 +71,13 @@ class Image < ApplicationRecord
 
   protected
 
-  def generate
+  def prepare
+    prepare_generated unless generated.attached?
+    prepare_shareable unless shareable.attached?
+  end
+  handle_asynchronously :prepare
+
+  def prepare_generated
     artifact = Stability.generate prompt
     self.update_column :seed, artifact.seed 
     io = StringIO.new artifact.binary
@@ -80,7 +86,7 @@ class Image < ApplicationRecord
                       content_type: 'image/png'
   end
 
-  def create_shareable
+  def prepare_shareable
     image = ChunkyPNG::Image.from_blob generated.download
     image.resample_nearest_neighbor! 1024, 1024
     if space.share_overlay.attached?

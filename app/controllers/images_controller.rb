@@ -30,8 +30,11 @@ class ImagesController < ApplicationController
   end
 
   def show
-    @image.prepare_shareable_image!
-    @ask_for_pseudo = current_user.pseudo.blank? && @image.user == current_user 
+    if @image.ready?
+      @ask_for_pseudo = current_user.pseudo.blank? && @image.user == current_user
+    else
+      render :pending
+    end
   end
 
   def like
