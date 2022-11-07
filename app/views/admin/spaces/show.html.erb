@@ -6,13 +6,12 @@
 
 <p>Prompt (aléatoire) : <%= @space.prompt %></p>
 
-
 <h2 class="h4 mt-5">Questions</h2>
 <%= render 'admin/questions/list', questions: @questions %>
 
 <h2 class="h4 mt-5">Images</h2>
 <div class="mb-4">
-  <%= line_chart Image.group_by_day(:created_at, last: 30).count %>
+  <%= line_chart @space.images.group_by_day(:created_at, last: 30).count %>
 </div>
 <%= render 'admin/images/list', images: @images %>
 
