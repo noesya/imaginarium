@@ -13,7 +13,7 @@ namespace :app do
         puts "Fixing image #{image.id}"
         image.prepare
       end
-      image.update_column :ready, image.ready?
+      image.update_column :ready, true
     end
   end
 
