@@ -1,0 +1,121 @@
+// space variable
+$blue: #283583
+$green: #60FE00
+$text-blue: #1e448b
+$border-color: #939AC1
+
+// bootstrap variables
+body
+    --bs-body-color: #{$text-blue}
+    --bs-body-font-size: 22px
+    --bs-link-color: #{$green}
+    --bs-link-hover-color: #{$green}
+
+.btn
+    --bs-btn-border-width: 3px
+
+.btn-primary
+    --bs-btn-color: #{$green}
+    --bs-btn-bg: #{$blue}
+    --bs-btn-border-color: #{$border-color}
+    --bs-btn-hover-border-color: #{$border-color}
+    --bs-btn-hover-color: #{$blue}
+    --bs-btn-hover-bg: #{$green}
+    --bs-btn-border-radius: 30px
+    --bs-btn-font-size: 18px
+    --bs-btn-padding-y: 10px
+    --bs-btn-padding-x: 30px
+    &.btn-sm
+        --bs-btn-padding-y: 5px
+        --bs-btn-padding-x: 15px
+
+.navbar-nav
+    --bs-navbar-color: #{$green}
+    --bs-nav-link-hover-color: #{$green}
+
+.navbar
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    .images-index &
+        position: relative
+        background-color: $blue
+        .navbar-brand
+            img
+                width: 150px
+    @media (min-width: 1200px)
+        a
+            text-decoration-thickness: 2px
+            &:hover
+                text-decoration: underline
+        .navbar-brand
+            position: absolute
+            top: 10px
+            z-index: 100
+            img
+                max-width: 30vw
+    @media (max-width: 1200px)
+        .container-fluid
+            align-items: start
+        .navbar-brand
+            img
+                width: 150px
+    @media (max-width: 768px)
+        .navbar-collapse
+            position: absolute
+            right: 0
+            background: $blue
+            text-align: right
+            padding: 30px
+            top: 60px
+            z-index: 100
+
+.navbar-toggler
+    width: 44px
+    height: 44px
+    background: white
+    padding: 0
+    border-radius: 50%
+
+.hero, .content
+    .container
+        @media (min-width: 1200px)
+            max-width: 100%
+            padding-left: 33.33333333%
+            padding-right: 33.33333333%
+    p
+        b
+            color: $green
+            font-weight: normal
+
+.hero
+    background: $blue
+    color: white
+    padding-top: 50px
+    @media (max-width: 1200px)
+        padding-top: 150px
+    &--pending
+        margin-bottom: 140px
+        @media (min-height: 700px) and (min-width: 1200px)
+            margin-bottom: calc(100vh - 490px)
+
+.content
+    background: #F0F0F0
+
+.form
+    input
+        border: 3px solid $border-color
+        border-radius: 30px
+    .progression
+        --form-nav-bg: transparent
+        --form-nav-color: #{$blue}
+        --form-nav-active-bg: #{$blue}
+        --form-nav-active-color: white
+        @media (min-width: 1200px)
+            padding-left: 160px
+
+.like-action
+    text-decoration: none
+    color: white
+
