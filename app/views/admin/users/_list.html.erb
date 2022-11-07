@@ -4,7 +4,7 @@
     <thead>
       <tr>
         <th>ID</th>
-        <th>Email</th>
+        <th>Pseudo</th>
         <th>Espace</th>
         <th>Images</th>
       </tr>
@@ -13,7 +13,7 @@
       <% users.each do |user| %>
         <tr>
           <td><%= link_to user, [:admin, user] %></td>
-          <td><%= user.email %></td>
+          <td><%= user.pseudo %></td>
           <td><%= user.space %></td>
           <td><%= user.images.count %></td>
         </tr>
