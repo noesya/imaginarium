@@ -80,7 +80,7 @@ class Image < ApplicationRecord
   def prepare
     prepare_generated unless generated.attached?
     prepare_shareable unless shareable.attached?
-    update_column :ready, ready?
+    self.update_column :ready, self.ready?
   end
   handle_asynchronously :prepare
 
