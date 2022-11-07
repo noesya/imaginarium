@@ -9,7 +9,11 @@ namespace :app do
 
   task fix: :environment do
     Image.find_each do |image|
-      image.prepare unless image.ready?
+      unless image.ready?
+        puts "Fixing image #{image.id}"
+        image.prepare
+      end
+      image.update_column :ready, image.ready?
     end
   end
 

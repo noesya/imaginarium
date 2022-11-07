@@ -6,6 +6,7 @@
 #  blames_count :integer          default(0)
 #  likes_count  :integer          default(0)
 #  prompt       :text
+#  ready        :boolean          default(FALSE)
 #  seed         :string
 #  user         :string
 #  created_at   :datetime         not null
@@ -40,8 +41,9 @@ class Image < ApplicationRecord
 
   scope :ordered, -> { order(likes_count: :desc, created_at: :desc)}
   scope :ordered_by_date, -> { order(created_at: :desc)}
+  scope :ready, -> { where(ready: true) }
   scope :not_blamed, -> { where('images.blames_count < ?', BAN_AFTER_BLAMES)}
-  scope :filtered, -> { not_blamed.ordered }
+  scope :filtered, -> { ready.not_blamed.ordered }
 
   def liked_by?(user)
     likes.where(user: user).exists?
@@ -78,6 +80,7 @@ class Image < ApplicationRecord
   def prepare
     prepare_generated unless generated.attached?
     prepare_shareable unless shareable.attached?
+    update_column :ready, ready?
   end
   handle_asynchronously :prepare
 

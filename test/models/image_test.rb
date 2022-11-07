@@ -6,6 +6,7 @@
 #  blames_count :integer          default(0)
 #  likes_count  :integer          default(0)
 #  prompt       :text
+#  ready        :boolean          default(FALSE)
 #  seed         :string
 #  user         :string
 #  created_at   :datetime         not null
