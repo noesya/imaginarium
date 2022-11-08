@@ -15,10 +15,10 @@ fr:
         additional_prompt: Pour générer des valeurs aléatoires, utiliser des |
         slug: Pas d'espaces, pas d'accents
   form: 
-    validate: valider
-    publish: publier
+    validate: Valider
+    publish: Signer
     pseudo:
-      placeholder: votre pseudo
+      placeholder: Votre pseudo
   image:
     create:
       submit: Créer une image
