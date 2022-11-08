@@ -32,6 +32,7 @@ class ImagesController < ApplicationController
   def show
     if @image.ready?
       @ask_for_pseudo = current_user.pseudo.blank? && @image.user == current_user
+      @ask_for_email = current_user.email.blank?
     else
       render :pending
     end

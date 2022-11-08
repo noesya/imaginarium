@@ -5,6 +5,7 @@
       <tr>
         <th>ID</th>
         <th>Pseudo</th>
+        <th>Email</th>
         <th>Espace</th>
         <th>Images</th>
       </tr>
@@ -14,6 +15,7 @@
         <tr>
           <td><%= link_to user, [:admin, user] %></td>
           <td><%= user.pseudo %></td>
+          <td><%= user.email %></td>
           <td><%= user.space %></td>
           <td><%= user.images.count %></td>
         </tr>

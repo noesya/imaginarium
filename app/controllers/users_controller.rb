@@ -8,6 +8,6 @@ class UsersController < ApplicationController
   protected
 
   def user_params
-    params.require(:user).permit(:pseudo)
+    params.require(:user).permit(:pseudo, :email)
   end
 end
