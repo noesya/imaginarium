@@ -1,7 +1,7 @@
 fr:
   activerecord:
     models:
-      space: 
+      space:
         one: Espace
         other: Espaces
     attributes:
@@ -16,10 +16,10 @@ fr:
       space:
         additional_prompt: Pour générer des valeurs aléatoires, utiliser des |
         slug: Pas d'espaces, pas d'accents
-  form: 
+  form:
     validate: Valider
     publish: Signer
-    ask_for_email: Vous voulez être recevoir des informations sur le projet ? Inscrivez votre adresse email.
+    ask_for_email: Vous voulez recevoir des informations sur le projet ? Inscrivez votre adresse email.
     set_email: Enregistrer mon mail
     email:
       placeholder: nom.prenom@exemple.com
@@ -29,7 +29,7 @@ fr:
     create:
       submit: Créer une image
     show:
-      report: 
+      report:
         action: Signaler ce contenu comme inapproprié
         validation: Vous avez signalé ce contenu comme inapproprié
       share_html: >

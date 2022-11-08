@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   resource :user, only: [:update]
   get 'a-propos' => 'pages#about', as: :about
   get 'mentions-legales' => 'pages#legal', as: :legal
+  get 'politique-de-confidentialite-et-de-cookies' => 'pages#privacy', as: :privacy
   get 'assets/style' => 'pages#style', constraints: { format: 'css' }
   root to: 'pages#index'
 end

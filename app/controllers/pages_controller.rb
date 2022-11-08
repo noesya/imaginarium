@@ -21,6 +21,9 @@ class PagesController < ApplicationController
     @legal = current_space.legal.to_s
   end
 
+  def privacy
+  end
+
   def style
     render inline: current_space.css
   end
