@@ -25,10 +25,15 @@ fr:
       placeholder: nom.prenom@exemple.com
     pseudo:
       placeholder: Votre pseudo
+  nav:
+    home: Accueil
+    create: Créer
+    images: Voir toutes les images
+    about: À propos
   image:
     cta:
       mine: Voir votre image dans la galerie
-      not_mine: Voir la galerie d’images
+      not_mine: Voir la galerie d’images et voter
     create:
       submit: Créer une image
     show:
