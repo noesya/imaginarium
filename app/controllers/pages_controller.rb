@@ -2,11 +2,11 @@ class PagesController < ApplicationController
   def index
     if current_space.nil?
       # www.imaginarium.live
-      @images = Image.filtered.limit(48)
+      @images = Image.filtered.ordered_by_likes.limit(Image::SELECTION)
       render :index_no_space
     else
       # Any specific space
-      @images = current_space.images.filtered.limit(48)
+      @images = current_space.images.filtered.ordered_by_likes.limit(Image::SELECTION)
       @home = current_space.home.to_s
       @home_cta_text = current_space.home_cta_text.to_s
       @home_cta_button = current_space.home_cta_button || 'Participer'

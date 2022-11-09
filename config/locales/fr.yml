@@ -26,6 +26,9 @@ fr:
     pseudo:
       placeholder: Votre pseudo
   image:
+    cta:
+      mine: Voir votre image dans la galerie
+      not_mine: Voir la galerie d’images
     create:
       submit: Créer une image
     show:
@@ -33,5 +36,5 @@ fr:
         action: Signaler ce contenu comme inapproprié
         validation: Vous avez signalé ce contenu comme inapproprié
       share_html: >
-        <b>Partagez-la !</b>
+        <b>Partagez-la !</b><br>
         Vous souhaitez la partager sur les réseaux sociaux ?

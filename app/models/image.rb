@@ -27,6 +27,7 @@
 class Image < ApplicationRecord
 
   BAN_AFTER_BLAMES = 2
+  SELECTION = 48
 
   belongs_to :space
   belongs_to :user, optional: true
@@ -39,11 +40,11 @@ class Image < ApplicationRecord
 
   after_create :prepare
 
-  scope :ordered, -> { order(likes_count: :desc, created_at: :desc)}
+  scope :ordered_by_likes, -> { order(likes_count: :desc, created_at: :desc)}
   scope :ordered_by_date, -> { order(created_at: :desc)}
   scope :ready, -> { where(ready: true) }
   scope :not_blamed, -> { where('images.blames_count < ?', BAN_AFTER_BLAMES)}
-  scope :filtered, -> { ready.not_blamed.ordered }
+  scope :filtered, -> { ready.not_blamed }
 
   def liked_by?(user)
     likes.where(user: user).exists?

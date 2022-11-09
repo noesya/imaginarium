@@ -2,11 +2,11 @@ class ImagesController < ApplicationController
   before_action :load
 
   def index
-    @images = current_space.images.filtered.page(params[:page]).per(96)
+    @images = current_space.images.filtered.ordered_by_date.page(params[:page]).per(96)
   end
 
   def new
-    @images = current_space.images.filtered.limit(48)
+    @images = current_space.images.filtered.ordered_by_likes.limit(Image::SELECTION)
     @questions = current_space.questions.active.ordered
     @image = Image.new
   end
@@ -31,7 +31,8 @@ class ImagesController < ApplicationController
 
   def show
     if @image.ready?
-      @ask_for_pseudo = current_user.pseudo.blank? && @image.user == current_user
+      @image_is_mine = @image.user == current_user
+      @ask_for_pseudo = @image_is_mine && current_user.pseudo.blank?
       @ask_for_email = current_user.email.blank?
     else
       render :pending

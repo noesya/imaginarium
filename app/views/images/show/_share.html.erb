@@ -1,0 +1,37 @@
+<% unless @ask_for_pseudo %>
+  <div class="share mt-5">
+    <p><%= t('image.show.share_html') %></p>
+    <a  href="https://www.facebook.com/sharer/sharer.php?u=<%= request.url %>" 
+        target="_blank"
+        rel="noopener"
+        class="btn btn-primary mb-3" 
+        title="Partager sur Facebook - lien externe">
+      <i class="bi bi-facebook"></i>
+      <span>Facebook</span>
+    </a>
+    <a  href="https://www.linkedin.com/sharing/share-offsite/?url=<%= request.url %>"
+        target="_blank"
+        rel="noopener"
+        class="btn btn-primary mb-3" 
+        title="Partager sur Linkedin - lien externe">
+      <i class="bi bi-linkedin"></i>
+      <span>Linkedin</span>
+    </a>
+    <a  href="https://twitter.com/intent/tweet?text=<%= request.url %>"
+        target="_blank" 
+        rel="noopener" 
+        class="btn btn-primary mb-3" 
+        title="Partager sur Twitter - lien externe">
+      <i class="bi bi-twitter"></i>
+      <span>Twitter</span>
+    </a>
+    <a  href="<%= rails_blob_path(@image.shareable, disposition: 'attachment', filename: 'test') %>"
+        target="_blank" 
+        rel="noopener" 
+        class="btn btn-primary mb-3" 
+        title="Télécharger - lien externe">
+      <i class="bi bi-download"></i>
+      <span>Télécharger (.png)</span>
+    </a>
+  </div>
+<% end %>

@@ -3,80 +3,12 @@
 <section class="hero">
   <div class="container">
     <div class="py-5 text-center">
-
-      <figure>
-        <%= kamifusen_tag @image.generated, class: 'img-fluid img-thumbnail mb-4' %>
-        <figcaption><%= @image.to_s %></figcaption>
-      </figure>
-
-      <% if @ask_for_pseudo %>
-        <%= simple_form_for current_user, :html=> { class: 'form' } do |f| %>
-          <%= f.input :pseudo, class: 'form-control', placeholder: t('form.pseudo.placeholder')  %>
-          <%= f.submit t('form.publish'), class: 'btn btn-primary mt-3' %>
-        <% end %>
-      <% end %>
-
-      <% if @ask_for_email %>
-        <p><%= t 'form.ask_for_email' %></p>
-        <%= simple_form_for current_user, :html=> { class: 'form' } do |f| %>
-          <%= f.input :email, label: false, class: 'form-control', placeholder: t('form.email.placeholder')  %>
-          <%= f.submit t('form.set_email'), class: 'btn btn-primary mt-3' %>
-        <% end %>
-      <% end %>
-
-      <div class="my-4">
-        <%= link_to like_image_path(@image), class: 'like-action' do %>  
-          <% if @image.liked_by? current_user %>
-            <i class="bi bi-heart-fill"></i>
-          <% else %>
-            <i class="bi bi-heart"></i>
-          <% end %>
-          <%= @image.likes_count %> 
-        <% end %>
-      </div>
-
-      <% unless @ask_for_pseudo %>
-        <div class="share">
-          <p><%= t('image.show.share_html') %></p>
-          <a  href="https://www.facebook.com/sharer/sharer.php?u=<%= request.url %>" 
-              target="_blank"
-              rel="noopener"
-              class="btn btn-primary" 
-              title="Partager sur Facebook - lien externe">
-            <i class="bi bi-facebook"></i>
-            <span>Facebook</span>
-          </a>
-          <a  href="https://www.linkedin.com/sharing/share-offsite/?url=<%= request.url %>"
-              target="_blank"
-              rel="noopener"
-              class="btn btn-primary" 
-              title="Partager sur Linkedin - lien externe">
-            <i class="bi bi-linkedin"></i>
-            <span>Linkedin</span>
-          </a>
-          <a  href="https://twitter.com/intent/tweet?text=<%= request.url %>"
-              target="_blank" 
-              rel="noopener" 
-              class="btn btn-primary" 
-              title="Partager sur Twitter - lien externe">
-            <i class="bi bi-twitter"></i>
-            <span>Twitter</span>
-          </a>
-        </div>
-      <% end %>
-
-      <div class="text-center my-3">
-        <%= link_to blame_image_path(@image), class: 'link small' do %>  
-          <% if @image.blamed_by? current_user %>
-            <i class="bi bi-exclamation-circle-fill"></i>
-            <%=  t('image.show.report.validation') %>
-          <% else %>
-            <i class="bi bi-exclamation-circle"></i>
-            <%=  t('image.show.report.action') %>
-          <% end %>
-        <% end %>
-      </div>
-
+      <%= render 'images/show/image' %>
+      <%= render 'images/show/pseudo' %>
+      <%= render 'images/show/email' %>
+      <%= render 'images/show/cta' %>
+      <%= render 'images/show/share' %>
+      <%= render 'images/show/blame' %>
     </div>
   </div>
 </section>
