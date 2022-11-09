@@ -8,7 +8,7 @@
     <div class="col-lg-3">
       <div class="card">
         <div class="row g-0">
-          <% space.images.ordered.limit(3).each do |image| %>
+          <% space.images.ordered_by_likes.limit(3).each do |image| %>
             <div class="col-4">
               <%= kamifusen_tag image.generated, class: 'img-fluid' %>
             </div>
