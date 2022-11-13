@@ -56,8 +56,15 @@
   </div>
   <div class="col-md-6">
     <h2 class="h4 mb-4">Signalé par <%= @image.blames_count %> utilisateurs</h2>
-    <% if @image.banned? %>
-      <p class="badge text-bg-danger">Image bannie</p>
+    <% if @image.too_many_blames? %>
+      <% if @image.banned? %>
+        <p class="badge text-bg-danger">Image bannie</p><br>
+        <%= link_to 'Valider malgré les signalements', 
+                    whitelist_admin_space_image_path(space_id: @image.space.id, id: @image.id),
+                    class: 'btn btn-warning' %>
+      <% else %>
+        <p class="badge text-bg-warning">Image signalée mais validée en admin</p>
+      <% end %>
     <% end %>
     <table class="table">
       <thead>

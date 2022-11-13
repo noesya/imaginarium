@@ -22,6 +22,9 @@
   <%= link_to "Modifier",
               edit_admin_space_path(@space), 
               class: button_classes %>
+  <%= link_to "Images signalées",
+              blamed_admin_space_images_path(@space), 
+              class: button_classes %>
   <%= link_to "SASS",
               sass_admin_space_path(@space), 
               class: button_classes %>

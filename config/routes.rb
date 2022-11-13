@@ -6,6 +6,14 @@ Rails.application.routes.draw do
       member do
         get :sass
       end
+      resources :images do
+        member do
+          get :whitelist
+        end
+        collection do
+          get :blamed
+        end
+      end
     end
     resources :questions
     resources :images, only: [:index, :show]

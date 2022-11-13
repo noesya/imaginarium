@@ -43,7 +43,8 @@ class Image < ApplicationRecord
   scope :ordered_by_likes, -> { order(likes_count: :desc, created_at: :desc)}
   scope :ordered_by_date, -> { order(created_at: :desc)}
   scope :ready, -> { where(ready: true) }
-  scope :not_blamed, -> { where('images.blames_count < ?', BAN_AFTER_BLAMES)}
+  scope :blamed, -> { where('images.whitelisted = FALSE AND images.blames_count >= ?', BAN_AFTER_BLAMES)}
+  scope :not_blamed, -> { where('images.whitelisted = TRUE OR images.blames_count < ?', BAN_AFTER_BLAMES)}
   scope :filtered, -> { ready.not_blamed }
 
   def liked_by?(user)
@@ -55,6 +56,10 @@ class Image < ApplicationRecord
   end
 
   def banned?
+    too_many_blames? && !whitelisted
+  end
+
+  def too_many_blames?
     blames_count >= BAN_AFTER_BLAMES
   end
 
