@@ -1,3 +1,19 @@
 <%= content_for :title, 'Images signalées' %>
 <p>Cette liste exclut les images en whitelist (validées malgré les signalements) et en blacklist (bannies définitivement)</p>
-<%= render 'admin/images/list', images: @images %>
+<p><%= @images.total_count %> images</p>
+<div class="row">
+  <% @images.each do |image| %>
+    <div class="col-md-2 mb-4">
+      <article class="position-relative">
+        <%= render 'admin/images/image', image: image %>
+        <%= link_to 'Valider', 
+                    whitelist_admin_space_image_path(space_id: image.space.id, id: image.id),
+                    class: 'btn btn-sm btn-info mt-1' %>
+        <%= link_to 'Bannir', 
+                    blacklist_admin_space_image_path(space_id: image.space.id, id: image.id),
+                    class: 'btn btn-sm btn-danger mt-1' %>
+      </article>
+    </div>
+  <% end %>
+</div>
+<%= paginate @images, theme: 'bootstrap-5', param_name: :images_page %>
