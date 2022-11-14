@@ -31,6 +31,7 @@ class ImagesController < ApplicationController
 
   def show
     if @image.ready?
+      redirect_to root_path if @image.banned?
       @image_is_mine = @image.user == current_user
       @ask_for_pseudo = @image_is_mine && current_user.pseudo.blank?
       @ask_for_email = current_user.email.blank?

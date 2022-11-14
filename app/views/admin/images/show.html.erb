@@ -56,15 +56,20 @@
   </div>
   <div class="col-md-6">
     <h2 class="h4 mb-4">Signalé par <%= @image.blames_count %> utilisateurs</h2>
-    <% if @image.too_many_blames? %>
+    <% if @image.blacklisted? %>
+      <p class="badge text-bg-danger">Image bannie</p>
+    <% elsif @image.whitelisted? %>
+      <p class="badge text-bg-info">Image validée</p>
+    <% else %>
       <% if @image.banned? %>
-        <p class="badge text-bg-danger">Image bannie</p><br>
-        <%= link_to 'Valider malgré les signalements', 
-                    whitelist_admin_space_image_path(space_id: @image.space.id, id: @image.id),
-                    class: 'btn btn-warning' %>
-      <% else %>
-        <p class="badge text-bg-warning">Image signalée mais validée en admin</p>
+        <p class="badge text-bg-warning">Image signalée</p><br>
       <% end %>
+      <%= link_to 'Valider définitivement', 
+                  whitelist_admin_space_image_path(space_id: @image.space.id, id: @image.id),
+                  class: 'btn btn-info' %>
+      <%= link_to 'Bannir définitivement', 
+                  blacklist_admin_space_image_path(space_id: @image.space.id, id: @image.id),
+                  class: 'btn btn-danger' %>
     <% end %>
     <table class="table">
       <thead>

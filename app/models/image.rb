@@ -3,12 +3,14 @@
 # Table name: images
 #
 #  id           :uuid             not null, primary key
+#  blacklisted  :boolean          default(FALSE)
 #  blames_count :integer          default(0)
 #  likes_count  :integer          default(0)
 #  prompt       :text
 #  ready        :boolean          default(FALSE)
 #  seed         :string
 #  user         :string
+#  whitelisted  :boolean          default(FALSE)
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
 #  space_id     :uuid             not null
@@ -43,8 +45,16 @@ class Image < ApplicationRecord
   scope :ordered_by_likes, -> { order(likes_count: :desc, created_at: :desc)}
   scope :ordered_by_date, -> { order(created_at: :desc)}
   scope :ready, -> { where(ready: true) }
-  scope :blamed, -> { where('images.whitelisted = FALSE AND images.blames_count >= ?', BAN_AFTER_BLAMES)}
-  scope :not_blamed, -> { where('images.whitelisted = TRUE OR images.blames_count < ?', BAN_AFTER_BLAMES)}
+  scope :whitelisted, -> { where(whitelisted: true) }
+  scope :not_whitelisted, -> { where(whitelisted: false) }
+  scope :blacklisted, -> { where(blacklisted: true) }
+  scope :not_blacklisted, -> { where(blacklisted: false) }
+  scope :too_many_blames, -> { where('images.blames_count >= ?', BAN_AFTER_BLAMES) }
+  scope :not_too_many_blames, -> { where('images.blames_count < ?', BAN_AFTER_BLAMES) }
+  scope :too_many_blames_and_not_whitelisted, -> { too_many_blames.not_whitelisted }
+  scope :whitelisted_or_not_too_many_blames, -> { whitelisted.or(not_too_many_blames) }
+  scope :blamed, -> { blacklisted.or(too_many_blames_and_not_whitelisted) }
+  scope :not_blamed, -> { not_blacklisted.whitelisted_or_not_too_many_blames}
   scope :filtered, -> { ready.not_blamed }
 
   def liked_by?(user)
@@ -56,7 +66,7 @@ class Image < ApplicationRecord
   end
 
   def banned?
-    too_many_blames? && !whitelisted
+    blacklisted || (too_many_blames? && !whitelisted)
   end
 
   def too_many_blames?

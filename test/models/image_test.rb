@@ -3,12 +3,14 @@
 # Table name: images
 #
 #  id           :uuid             not null, primary key
+#  blacklisted  :boolean          default(FALSE)
 #  blames_count :integer          default(0)
 #  likes_count  :integer          default(0)
 #  prompt       :text
 #  ready        :boolean          default(FALSE)
 #  seed         :string
 #  user         :string
+#  whitelisted  :boolean          default(FALSE)
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
 #  space_id     :uuid             not null

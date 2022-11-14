@@ -25,12 +25,10 @@
   <%= link_to "Images signalées",
               blamed_admin_space_images_path(@space), 
               class: button_classes %>
+  <%= link_to "Images bannies",
+              blacklisted_admin_space_images_path(@space), 
+              class: button_classes %>
   <%= link_to "SASS",
               sass_admin_space_path(@space), 
               class: button_classes %>
-  <%= link_to "Supprimer",
-              [:admin, @space],
-              method: :delete,
-              class: button_classes_danger,
-              data: { confirm: 'Confirmer ?' } %>
 <% end %>

@@ -2,16 +2,18 @@ Rails.application.routes.draw do
   match "/delayed_job" => DelayedJobWeb, :anchor => false, :via => [:get, :post]
 
   namespace :admin do
-    resources :spaces do
+    resources :spaces, except: :destroy do
       member do
         get :sass
       end
       resources :images do
         member do
           get :whitelist
+          get :blacklist
         end
         collection do
           get :blamed
+          get :blacklisted
         end
       end
     end

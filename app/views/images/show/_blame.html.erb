@@ -1,11 +1,15 @@
-<div class="text-center my-3">
-  <%= link_to blame_image_path(@image), class: 'link small' do %>  
-    <% if @image.blamed_by? current_user %>
-      <i class="bi bi-exclamation-circle-fill"></i>
-      <%=  t('image.show.report.validation') %>
-    <% else %>
-      <i class="bi bi-exclamation-circle"></i>
-      <%=  t('image.show.report.action') %>
+<div class="text-center mt-5 mb-3">
+
+  <p class="small">
+    Vous trouvez que cette image est blessante, offensante ou insultante ? 
+    <%= link_to blame_image_path(@image), class: 'link blame' do %>  
+      <% if @image.blamed_by? current_user %>
+        <i class="bi bi-exclamation-circle-fill"></i>
+        <%=  t('image.show.report.validation') %>
+      <% else %>
+        <i class="bi bi-exclamation-circle"></i>
+        <%=  t('image.show.report.action') %>
+      <% end %>
     <% end %>
-  <% end %>
+  <p>
 </div>
