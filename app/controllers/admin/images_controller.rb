@@ -12,7 +12,7 @@ class Admin::ImagesController < Admin::ApplicationController
 
   def blamed
     @space = Space.find(params[:space_id])
-    @images = @space.images.blamed.page params[:page]
+    @images = @space.images.blamed.ordered_by_date.page params[:page]
     add_breadcrumb 'Tableau de bord', admin_root_path
     add_breadcrumb 'Espaces', admin_spaces_path
     add_breadcrumb @space, [:admin, @space]
