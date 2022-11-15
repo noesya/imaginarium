@@ -15,9 +15,11 @@
 <% end %>
 
 <div class="row mt-5">
-  <div class="col-md-6 col-xl-4">
-    <%= image_tag @image.generated, class: 'img-fluid img-thumbnail' %>
-  </div>
+  <% if @image.generated.attached? %>
+    <div class="col-md-6 col-xl-4">
+      <%= image_tag @image.generated, class: 'img-fluid img-thumbnail' %>
+    </div>
+  <% end %>
   <div class="col-md-6 col-xl-8">
     <% @image.answers.each do |answer| %>
       <p>
