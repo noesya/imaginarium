@@ -6,6 +6,9 @@ class Stability
         return artifact if artifact.type == :ARTIFACT_IMAGE
       end
     end
+  rescue
+    # GRPC::InvalidArgument: Invalid prompts detected
+    false
   end
 
   protected

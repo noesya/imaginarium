@@ -103,11 +103,18 @@ class Image < ApplicationRecord
 
   def prepare_generated
     artifact = Stability.generate prompt
-    self.update_column :seed, artifact.seed 
-    io = StringIO.new artifact.binary
-    generated.attach  io: io,
-                      filename: 'generated.png',
-                      content_type: 'image/png'
+    if artifact == false
+      # Erreur lors de la génération de l'image, 
+      # notamment à cause de prompts problématiques.
+      # On blacklist l'image.
+      self.update_column :blacklisted, true
+    else
+      self.update_column :seed, artifact.seed 
+      io = StringIO.new artifact.binary
+      generated.attach  io: io,
+                        filename: 'generated.png',
+                        content_type: 'image/png'
+    end
   end
 
   def prepare_shareable
