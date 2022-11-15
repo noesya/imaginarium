@@ -73,7 +73,7 @@ class Admin::SpacesController < Admin::ApplicationController
               :name, :domain, :additional_prompt, 
               :home, :home_cta_text, :home_cta_button, 
               :about, :legal, 
-              :sass, 
+              :sass, :script,
               :logo, :logo_delete,
               :logo_footer, :logo_footer_delete,
               :share_overlay, :share_overlay_delete
