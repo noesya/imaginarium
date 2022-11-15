@@ -118,6 +118,7 @@ class Image < ApplicationRecord
   end
 
   def prepare_shareable
+    return unless generated.attached?
     image = ChunkyPNG::Image.from_blob generated.download
     image.resample_nearest_neighbor! 1024, 1024
     if space.share_overlay.attached?
