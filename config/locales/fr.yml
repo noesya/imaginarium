@@ -30,6 +30,11 @@ fr:
     create: Créer
     images: Voir toutes les images
     about: À propos
+  footer:
+    legal: Mentions légales
+    privacy: Politique de confidentialité et de cookies
+    choice: Choix en matière de cookies
+    data: Open data
   image:
     cta:
       mine: Voir votre image dans la galerie

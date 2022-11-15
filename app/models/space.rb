@@ -22,6 +22,8 @@ class Space < ApplicationRecord
   has_many :users
   has_many :questions
   has_many :answers
+  has_many :likes, through: :images
+  has_many :blames, through: :images
 
   has_one_attached_deletable :logo
   has_one_attached_deletable :logo_footer

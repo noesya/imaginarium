@@ -3,8 +3,8 @@
     <%= image_tag current_space.logo_footer, alt: '', class: 'logo' %>
   <% end %>
   <div>
-    <%= link_to 'Mentions légales', legal_path %>
-    <%= link_to 'Politique de confidentialité et de cookies', privacy_path %>
-    <%= link_to 'Choix en matière de cookies', '#', class: 'js-gdpr__cookie_consent__display_again' %>
+    <%= link_to t('footer.legal'), legal_path %>
+    <%= link_to t('footer.privacy'), privacy_path %>
+    <%= link_to t('footer.choice'), '#', class: 'js-gdpr__cookie_consent__display_again' %>
   </div>
 </footer>

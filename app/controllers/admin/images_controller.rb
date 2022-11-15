@@ -31,13 +31,15 @@ class Admin::ImagesController < Admin::ApplicationController
   def whitelist
     @image = Image.find(params[:id])
     @image.whitelisted = true
+    @image.blacklisted = false
     @image.save
     redirect_to blamed_admin_space_images_path(@image.space)
   end
-
+  
   def blacklist
     @image = Image.find(params[:id])
     @image.blacklisted = true
+    @image.whitelisted = false
     @image.save
     redirect_to blamed_admin_space_images_path(@image.space)
   end

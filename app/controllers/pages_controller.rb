@@ -24,6 +24,13 @@ class PagesController < ApplicationController
   def privacy
   end
 
+  def data
+    @images = current_space.images.count
+    @users = current_space.users.count
+    @likes = current_space.likes.count
+    @blames = current_space.blames.count
+  end
+
   def style
     render inline: current_space.css
   end

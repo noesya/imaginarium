@@ -1,10 +1,12 @@
-<%= content_for :title, 'Politique de confidentialité et de cookies' %>
+<%= content_for :title, t('footer.privacy') %>
 
 <section class="hero">
   <div class="container py-5">
-    <p><b>Politique de confidentialité et de cookies</b></p>
+    <h1 class="mb-5"><%= t('footer.privacy') %></h1>
+
+    <p><b>Contexte et définitions</b></p>
     <p>
-      Cette politique de confidentialité et de protection des données personnelles, ci-après dénommée «Politique de confidentialité», s’applique au site <%= current_space.domain %>, ci-après dénommé le «Site».
+      Cette politique de confidentialité et de protection des données personnelles, ci-après dénommée «Politique de confidentialité», s’applique au site «<%= current_space.domain %>», ci-après dénommé le «Site».
     </p>
     <p>
       Nous accordons une importance cruciale à la protection de vos données personnelles. Pour vous garantir le meilleur niveau de protection, nous veillons scrupuleusement à ce que la collecte, l’utilisation et le traitement de vos données personnelles s’effectuent avec précaution et à bon escient, et dans le strict respect du règlement (UE) 2016/679 du Parlement européen et du Conseil du 27 avril 2016 relatif à la protection des personnes physiques à l’égard du traitement des données à caractère personnel et à la libre circulation de ces données, ci-après dénommé « RGPD ».
@@ -16,11 +18,13 @@
       Sont considérées comme données personnelles toutes les données étant susceptibles de vous identifier. Il s’agit notamment de votre pseudo, adresse électronique, localisation ou encore adresse IP.
     </p>
     <p>
-      Cette Politique de confidentialité complète les mentions légales que vous pouvez consulter en cliquant <%= link_to 'ici', legal_url %>
+      Cette Politique de confidentialité complète les <%= link_to t('footer.legal').downcase, legal_url %> du site.
     </p>
     <p>
       Cette Politique de confidentialité couvre également les données que nous recevons de la part de nos prestataires de service ou autre sources tierces.
     </p>
+
+    <p><b>Traitement des données à caractère personnel</b></p>
     <p>
       La base légale pour le traitement des données à caractère personnel couvertes par la présente Politique de confidentialité est fondée sur le RGPD.
     </p>
@@ -34,7 +38,7 @@
       </ul>
     </p>
     <p>
-      Nous collectons et traitons vos données dans le respect des principes suivants : Licéité, loyauté et transparence
+      Nous collectons et traitons vos données dans le respect des principes suivants : licéité, loyauté et transparence.
     </p>
     <p>
       Vos données ne peuvent être collectées et traitées qu’avec votre consentement. A chaque fois que des données à caractère personnel sont collectées, vous serez informé que ces données sont collectées et pour quelles raisons elles le sont.
@@ -52,8 +56,9 @@
       Nous nous engageons à garantir l’intégrité et la confidentialité des données collectées à l’exception des tiers prestataires de services et partenaires indispensables à la bonne exécution des objectifs poursuivis par le Site.
     </p>
 
+    <p><b>Cookies et autres technologies similaires</b></p>
     <p>
-      Parmi les données collectées automatiquement figurent les Cookies et autres technologies similaires<br>
+      Parmi les données collectées automatiquement figurent les Cookies et autres technologies similaires.<br>
       Les cookies et les technologies similaires sont des données stockées directement sur l’ordinateur que vous utilisez.<br>
       Un cookie est un petit fichier situé dans votre appareil qui permet d’activer les fonctionnalités de notre Site. Tout navigateur qui accède à notre Site peut recevoir des cookies de notre part ou de la part de tiers prestataires de services.
     </p>
@@ -68,9 +73,13 @@
         <li>Configurer votre navigateur pour qu’il refuse automatiquement les cookies. Si vous configurez votre navigateur pour qu’il refuse les cookies, certaines parties du Site pourraient ne pas fonctionner correctement.</li>
       </ul>
     </p>
+    <p><b>Hébergement</b></p>
     <p>
       Le Site est hébergé par : SCALINGO SAS, dont le siège est situé 15 avenue du Rhin – 67100 Strasbourg – France.<br>
       L’Hébergeur peut être contacté par mail à <a href="mailto:hello@scalingo.com">hello@scalingo.com</a>
+    </p>
+    <p>
+      Les images sont hébergées par : SCALEWAY SAS, dont le siège est situé 8 rue de la Ville l’Evêque — 75008 Paris — France.
     </p>
     <p>
       Les données collectées et traitées par le Site sont exclusivement hébergées et traitées en FRANCE.

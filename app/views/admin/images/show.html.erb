@@ -60,17 +60,15 @@
       <p class="badge text-bg-danger">Image bannie</p>
     <% elsif @image.whitelisted? %>
       <p class="badge text-bg-info">Image validée</p>
-    <% else %>
-      <% if @image.banned? %>
-        <p class="badge text-bg-warning">Image signalée</p><br>
-      <% end %>
-      <%= link_to 'Valider définitivement', 
-                  whitelist_admin_space_image_path(space_id: @image.space.id, id: @image.id),
-                  class: 'btn btn-info' %>
-      <%= link_to 'Bannir définitivement', 
-                  blacklist_admin_space_image_path(space_id: @image.space.id, id: @image.id),
-                  class: 'btn btn-danger' %>
+    <% elsif @image.too_many_blames? %>
+      <p class="badge text-bg-warning">Image signalée</p><br>
     <% end %>
+    <%= link_to 'Valider définitivement', 
+                whitelist_admin_space_image_path(space_id: @image.space.id, id: @image.id),
+                class: 'btn btn-info' %>
+    <%= link_to 'Bannir définitivement', 
+                blacklist_admin_space_image_path(space_id: @image.space.id, id: @image.id),
+                class: 'btn btn-danger' %>
     <table class="table">
       <thead>
         <tr>

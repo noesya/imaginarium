@@ -1,0 +1,15 @@
+<%= content_for :title, t('footer.data') %>
+
+<section class="hero">
+  <div class="container py-5">
+    <h1 class="mb-5"><%= t('footer.data') %></h1>
+    <p><b><i class="bi bi-image"></i> <%= @images %> images</b></p>
+    <p>Nombre d'images générées au total.</p>
+    <p><b><i class="bi bi-person-fill"></i> <%= @users %> personnes</b></p>
+    <p>Nombre de sessions, qui peuvent être plus nombreuses que les personnes physiques qui se sont réellement connectées. Une personne se connectant depuis son téléphone et son ordinateur générera 2 sessions.</p>
+    <p><b><i class="bi bi-heart-fill"></i> <%= @likes %> appréciations</b></p>
+    <p>Chaque image peut être appréciée 1 fois par session. Les images les plus appréciées s'affichent sur la page d'accueil.</p>
+    <p><b><i class="bi bi-exclamation-circle-fill"></i> <%= @blames %> signalements</b></p>
+    <p>Les signalements permettent d'alerter sur les images potentiellement offensantes. L'équipe de modération intervient ensuite pour statuer.</p>
+  </div>
+</section>

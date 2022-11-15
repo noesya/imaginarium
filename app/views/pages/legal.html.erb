@@ -1,7 +1,8 @@
-<%= content_for :title, 'Mentions légales' %>
+<%= content_for :title, t('footer.legal') %>
 
 <section class="hero">
   <div class="container py-5">
+    <h1 class="mb-5"><%= t('footer.legal') %></h1>
     <%= @legal.html_safe %>
     <p><b>Technique</b></p>
     <p>
