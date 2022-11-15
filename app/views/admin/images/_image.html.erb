@@ -6,5 +6,9 @@
   <span class="badge bg-warning position-absolute top-0 end-0 m-1">Image signalée</span>
 <% end %>
 <%= link_to [:admin, image] do %>
-  <%= kamifusen_tag image.generated, class: 'img-fluid' %>
+  <% if image.generated.attached? %>
+    <%= kamifusen_tag image.generated, class: 'img-fluid' %>
+  <% else %>
+    Image non générée
+  <% end %>
 <% end %>
