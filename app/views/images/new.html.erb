@@ -12,7 +12,10 @@
       <% @questions.each_with_index do |question, index| %>
         <fieldset id="<%= question.id %>" class="js-step <% if index == 0 %> is-visible<% end %>">
           <label for="<%= question.id %>-input" class="form-label">
-            <%= (index + 1) %>. <%= question %>
+            <% if @questions.many? %>
+              <%= (index + 1) %>. 
+            <% end %>
+            <%= question %>
           </label>
           <div class="d-flex">
             <input type="text" id="<%= question.id %>-input" name="question[<%= question.id %>]" class="form-control me-3">
@@ -24,12 +27,13 @@
           </div>
         </fieldset>
       <% end %>
-
-      <ol class="progression mt-3">
-        <% @questions.each_with_index do |question, index| %>
-          <li data-show-step="<%= index %>"><%= (index + 1) %></li>
-        <% end %>
-      </ol>
+      <% if @questions.many? %>
+        <ol class="progression mt-3">
+          <% @questions.each_with_index do |question, index| %>
+            <li data-show-step="<%= index %>"><%= (index + 1) %></li>
+          <% end %>
+        </ol>
+      <% end %>
     <% end %>
   </div>
 </section>
