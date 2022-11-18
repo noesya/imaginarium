@@ -28,7 +28,7 @@
 #
 class Image < ApplicationRecord
 
-  BAN_AFTER_BLAMES = 2
+  BAN_AFTER_BLAMES = 10
   SELECTION = 48
 
   belongs_to :space
