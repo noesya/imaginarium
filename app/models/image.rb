@@ -109,8 +109,8 @@ class Image < ApplicationRecord
       # On blacklist l'image.
       self.update_column :blacklisted, true
     else
-      self.update_column :seed, artifact.seed 
-      io = StringIO.new artifact.binary
+      self.update_column :seed, artifact&.seed 
+      io = StringIO.new artifact&.binary
       generated.attach  io: io,
                         filename: 'generated.png',
                         content_type: 'image/png'
