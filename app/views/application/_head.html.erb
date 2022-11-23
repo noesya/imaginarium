@@ -29,6 +29,7 @@
     <% if current_space %>
       <link rel="stylesheet" type="text/css" href="/assets/style.css" media="all">
     <% end %>
+    <%= stylesheet_link_tag 'bootstrap-print.min.css', media: :print %>
     <%= stylesheet_link_tag 'dev' if Rails.env.development? %>
   </head>
 
