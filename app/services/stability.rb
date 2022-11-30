@@ -1,6 +1,7 @@
 class Stability
 
   def self.generate(prompt, options = {})
+    options[:engine] = 'stable-diffusion-2'
     client.generate(prompt, options) do |answer|
       answer.artifacts.each do |artifact|
         return artifact if artifact.type == :ARTIFACT_IMAGE
