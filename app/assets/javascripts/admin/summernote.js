@@ -1,4 +1,4 @@
-/*global $, SummernoteAttachmentUpload */
+/*global $ */
 $(function () {
     'use strict';
 
@@ -17,7 +17,7 @@ $(function () {
     });
 
     // https://github.com/summernote/summernote/issues/4170
-    $("button[data-toggle='dropdown']").each(function (index) { 
-        $(this).removeAttr("data-toggle").attr("data-bs-toggle", "dropdown"); 
+    $("button[data-toggle='dropdown']").each(function (index) {
+        $(this).removeAttr("data-toggle").attr("data-bs-toggle", "dropdown");
     });
 });
