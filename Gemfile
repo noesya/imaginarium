@@ -32,7 +32,7 @@ gem 'simple_form'
 gem 'simple_form_bs5_file_input'
 gem 'sprockets-rails'
 gem 'stability_sdk'
-gem 'summernote-rails', git: 'https://github.com/noesya/summernote-rails.git', branch: 'activestorage'
+gem 'summernote-rails', git: 'https://github.com/noesya/summernote-rails.git'
 gem 'tzinfo-data', platforms: %i[ mingw mswin x64_mingw jruby ]
 
 group :development, :test do
