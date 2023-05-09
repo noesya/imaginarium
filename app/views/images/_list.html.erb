@@ -7,7 +7,7 @@
           <%= image.likes_count %> 
         <span>
       </div>
-      <%= link_to image do %>
+      <%= link_to image_path(id: image.id) do %>
         <%= kamifusen_tag image.generated, class: 'img-fluid', alt: image %>
       <% end %>
     </div>
