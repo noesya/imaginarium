@@ -22,17 +22,19 @@ Rails.application.routes.draw do
     resources :users, only: [:index, :show]
     root to: 'dashboard#index'
   end
-  resources :images, except: [:update, :destroy] do
-    member do
-      get :like
-      get :blame
+  scope "(:mode)", mode: /embed/ do
+    resources :images, except: [:update, :destroy] do
+      member do
+        get :like
+        get :blame
+      end
     end
+    resource :user, only: [:update]
+    get 'a-propos' => 'pages#about', as: :about
+    get 'mentions-legales' => 'pages#legal', as: :legal
+    get 'politique-de-confidentialite-et-de-cookies' => 'pages#privacy', as: :privacy
+    get 'assets/style' => 'pages#style', constraints: { format: 'css' }
+    get 'data' => 'pages#data'
+    root to: 'pages#index'
   end
-  resource :user, only: [:update]
-  get 'a-propos' => 'pages#about', as: :about
-  get 'mentions-legales' => 'pages#legal', as: :legal
-  get 'politique-de-confidentialite-et-de-cookies' => 'pages#privacy', as: :privacy
-  get 'assets/style' => 'pages#style', constraints: { format: 'css' }
-  get 'data' => 'pages#data'
-  root to: 'pages#index'
 end

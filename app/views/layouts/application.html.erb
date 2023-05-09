@@ -2,12 +2,12 @@
 <html lang="fr" prefix="og: http://ogp.me/ns#">
   <%= render 'head' %>
   <body class="<%= body_classes %>">
-    <%= render 'nav' if current_space %>
+    <%= render 'nav' if current_space && !embedded? %>
     <main>
       <%= yield %>
     </main>
     <% if current_space %>
-      <%= render 'footer' %>
+      <%= render 'footer' unless embedded? %>
       <%= render 'gdpr/cookie_consent' %>
       <%= current_space.script.to_s.html_safe %>
     <% end %>
