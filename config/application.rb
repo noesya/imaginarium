@@ -30,6 +30,11 @@ module Imaginarium
     config.active_storage.variant_processor = :mini_magick
     config.i18n.default_locale = :fr
 
+
+    config.action_dispatch.default_headers = {
+      'X-Frame-Options' => 'ALLOWALL',
+      'Access-Control-Allow-Origin' => '*'
+    }
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files
