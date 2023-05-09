@@ -8,6 +8,7 @@ module ApplicationHelper
     classes = "controller-#{controller_class}"
     classes += " action-#{action_name}"
     classes += " #{controller_class}-#{action_name}"
+    classes += " mode-embed" if embedded?
     classes
   end
 
