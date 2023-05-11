@@ -26,7 +26,7 @@ class ImagesController < ApplicationController
     end
     @image.prompt += current_space.prompt
     @image.save
-    redirect_to image_path(@image)
+    redirect_to image_path(id: @image.id)
   end
 
   def show
