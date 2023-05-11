@@ -1,6 +1,6 @@
 <%= content_for :title, @image.to_s %>
 
-<section class="hero hero--pending">
+<section class="hero hero--pending js-autorefresh">
   <div class="container">
     <div class="py-5 text-center">
       <p>
@@ -10,9 +10,3 @@
     </div>
   </div>
 </section>
-
-<script nonce="<%= SecureRandom.hex %>">
-setTimeout(function () {
-    location.reload()
-}, 2000);
-</script>
