@@ -1,5 +1,6 @@
 class ImagesController < ApplicationController
   before_action :load
+  skip_forgery_protection if -> { embedded? }
 
   def index
     @images = current_space.images.filtered.ordered_by_date.page(params[:page]).per(96)

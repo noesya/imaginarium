@@ -2,7 +2,7 @@
 <html lang="fr" prefix="og: http://ogp.me/ns#">
   <%= render 'head' %>
   <body class="<%= body_classes %>">
-    <%= render 'nav' if current_space && !embedded? %>
+    <%= render 'nav' if current_space %>
     <main>
       <%= yield %>
     </main>

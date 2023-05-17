@@ -1,3 +1,15 @@
+<% if embedded? %>
+  <nav class="navbar navbar-expand-md">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">
+        <% if current_space.logo.attached? %>
+          <%= image_tag current_space.logo, alt: current_space.to_s %>
+        <% else %>
+          <%= current_space %>
+        <% end %>
+      </a>
+  </nav>
+<% else %>
 <nav class="navbar navbar-expand-md">
   <div class="container-fluid">
     <a class="navbar-brand" href="/">
@@ -20,3 +32,4 @@
     </div>
   </div>
 </nav>
+<% end %>
