@@ -8,7 +8,7 @@
     </main>
     <% if current_space %>
       <%= render 'footer' unless embedded? %>
-      <%= render 'gdpr/cookie_consent' %>
+      <%= render 'gdpr/cookie_consent' unless embedded? %>
       <%= current_space.script.to_s.html_safe %>
     <% end %>
     <%= javascript_include_tag 'application', defer: true %>
