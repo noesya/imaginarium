@@ -1,4 +1,7 @@
-<%= link_to root_path do %>
-  <i class="bi bi-arrow-left"></i>
-  Recommencer
-<% end unless current_page?(root_path) %>
+<% unless current_page?(root_path) %>
+  <div class="back">
+    <%= link_to root_path do %>
+      <i class="bi bi-arrow-left"></i> Recommencer
+    <% end  %>
+  </div>
+<% end  %>
