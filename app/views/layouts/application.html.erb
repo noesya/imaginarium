@@ -7,8 +7,8 @@
       <%= yield %>
     </main>
     <% if current_space %>
-      <%= render 'footer' unless embedded? %>
-      <%= render 'gdpr/cookie_consent' unless embedded? %>
+      <%= render 'footer' %>
+      <%= render 'gdpr/cookie_consent'%>
       <%= current_space.script.to_s.html_safe %>
     <% end %>
     <%= javascript_include_tag 'application', defer: true %>
