@@ -1,4 +1,7 @@
 class ApplicationController < ActionController::Base
+  include WithErrors
+
+  before_action :ensure_space
 
   def current_space
     @current_space ||= Space.find_by domain: request.domain(2)
@@ -19,5 +22,11 @@ class ApplicationController < ActionController::Base
     options = {}
     options[:mode] = params[:mode] if params.has_key? :mode
     options
+  end
+
+  private
+
+  def ensure_space
+    render_forbidden unless current_space
   end
 end

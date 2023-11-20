@@ -6,35 +6,25 @@ fr:
         other: Espaces
     attributes:
       space:
+        additional_prompt: Prompt additionnel
         name: Nom
         slug: Identifiant
-        additional_prompt: Prompt additionnel
       user:
         email: Adresse email
-  simple_form:
-    hints:
-      space:
-        additional_prompt: Pour générer des valeurs aléatoires, utiliser des |
-        slug: Pas d'espaces, pas d'accents
+  footer:
+    choice: Choix en matière de cookies
+    data: Open data
+    legal: Mentions légales
+    privacy: Politique de confidentialité et de cookies
   form:
-    validate: Valider
-    publish: Signer
     ask_for_email: Vous voulez recevoir des informations sur le projet ? Inscrivez votre adresse email.
-    set_email: Enregistrer mon mail
     email:
       placeholder: nom.prenom@exemple.com
     pseudo:
       placeholder: Votre pseudo
-  nav:
-    home: Accueil
-    create: Créer
-    images: Voir toutes les images
-    about: À propos
-  footer:
-    legal: Mentions légales
-    privacy: Politique de confidentialité et de cookies
-    choice: Choix en matière de cookies
-    data: Open data
+    publish: Signer
+    set_email: Enregistrer mon mail
+    validate: Valider
   image:
     cta:
       mine: Voir votre image dans la galerie
@@ -48,3 +38,14 @@ fr:
       share_html: >
         <b>Partagez-la !</b><br>
         Vous souhaitez la partager sur les réseaux sociaux ?
+  inactivity_alert: "Il semble que vous soyez resté sur la page un peu trop longtemps. Pouvez-vous ré-essayer ?"
+  nav:
+    about: À propos
+    create: Créer
+    home: Accueil
+    images: Voir toutes les images
+  simple_form:
+    hints:
+      space:
+        additional_prompt: Pour générer des valeurs aléatoires, utiliser des |
+        slug: Pas d'espaces, pas d'accents

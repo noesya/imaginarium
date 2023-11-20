@@ -1,4 +1,6 @@
 class PagesController < ApplicationController
+  skip_before_action :ensure_space, only: :index
+
   def index
     if current_space.nil?
       # www.imaginarium.live
