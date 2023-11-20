@@ -1,0 +1,40 @@
+body {
+  padding: 15px;
+}
+
+* {
+  font-family: sans-serif;
+  font-size: 14px;
+  margin: 0;
+  text-align: center;
+}
+
+.dialog {
+  width: 95%;
+  max-width: 22em;
+  margin: calc(50vh - 140px) auto 0;
+}
+
+.dialog span {
+  font-size: 150px;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  display: block;
+  width: 100%;
+  line-height: 0.9;
+}
+
+img {
+  filter: invert(1);
+  margin-bottom: 30px;
+}
+
+h1 {
+  font-size: 14px;
+  line-height: 1.5em;
+  margin-bottom: 30px;
+}
+
+h1 em {
+  font-weight: 400;
+}

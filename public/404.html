@@ -2,46 +2,10 @@
 <html>
 
 <head>
-  <title>The page you were looking for doesn't exist (404)</title>
+  <title>La page que vous cherchez n'existe pas (404)</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <style>
-    body {
-      padding: 15px;
-    }
-
-    * {
-      font-family: sans-serif;
-      font-size: 14px;
-      margin: 0;
-      text-align: center;
-    }
-
-    .dialog {
-      width: 95%;
-      max-width: 22em;
-      margin: calc(50vh - 140px) auto 0;
-    }
-
-    .dialog span {
-      font-size: 150px;
-      font-weight: 900;
-      letter-spacing: -0.04em;
-      display: block;
-      width: 100%;
-      line-height: 0.9;
-    }
-
-    h1 {
-      font-size: 14px;
-      line-height: 1.5em;
-      margin-bottom: 30px;
-    }
-
-    h1 em {
-      font-weight: 400;
-    }
-  </style>
+  <link rel="stylesheet" href="/error-page.css">
 </head>
 
 <body class="error-page">
@@ -50,7 +14,11 @@
       404
     </span>
     <div>
-      <h1>The page you were looking for doesn't exist.<br><em>You may have mistyped the address or the page may have moved.</em></h1>
+      <h1>
+        La page que vous cherchez n'existe pas.<br>
+        <em>Vous avez peut-être fait une erreur dans la saisie de l'adresse, ou la page a peut-être bougé.</em>
+      </h1>
+      <a href="/"><img src="/logo.svg" alt="Imaginarium" width="100"></a>
     </div>
   </div>
 </body>
