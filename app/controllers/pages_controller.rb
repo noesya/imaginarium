@@ -3,7 +3,7 @@ class PagesController < ApplicationController
 
   def index
     if current_space.nil?
-      # www.imaginarium.live
+      # https://imaginarium.osc-fr1.scalingo.io
       @images = Image.filtered.ordered_by_likes.limit(Image::SELECTION)
       render :index_no_space
     else
