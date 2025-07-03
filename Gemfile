@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| 'https://github.com/#{repo}.git' }
 
-ruby '3.4.1'
+ruby '3.4.4'
 
 gem "activestorage-scaleway-service"
 gem "aws-sdk-s3"
@@ -27,7 +27,7 @@ gem "ostruct", "~> 0.6.0"
 gem "pg", "~> 1.1"
 gem "puma", "~> 6.0"
 gem "rack-cors"
-gem "rails", "~> 7.2.0"
+gem "rails", "~> 8.0"
 gem "sassc-rails"
 gem "simple-navigation"
 gem "simple_form"
@@ -43,7 +43,7 @@ end
 
 group :development do
   gem "web-console"
-  gem "annotate"
+  gem "annotaterb"
   gem "http_logger"
 end
 
