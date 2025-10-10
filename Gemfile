@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| 'https://github.com/#{repo}.git' }
 
-ruby '3.4.6'
+ruby '3.4.7'
 
 gem "activestorage-scaleway-service"
 gem "aws-sdk-s3"
@@ -25,7 +25,7 @@ gem "kaminari"
 gem "kaminari-i18n"
 gem "ostruct", "~> 0.6.0"
 gem "pg", "~> 1.1"
-gem "puma", "~> 6.0"
+gem "puma", "~> 7.0"
 gem "rack-cors"
 gem "rails", "~> 8.0"
 gem "sassc-rails"
@@ -35,10 +35,10 @@ gem "simple_form_bs5_file_input"
 gem "sprockets-rails"
 gem "stability_sdk"
 gem "summernote-rails", git: "https://github.com/noesya/summernote-rails.git"
-gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
+gem "tzinfo-data", platforms: %i[ windows jruby ]
 
 group :development, :test do
-  gem "debug", platforms: %i[ mri mingw x64_mingw ]
+  gem "debug", platforms: %i[ mri windows ]
 end
 
 group :development do
