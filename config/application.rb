@@ -21,25 +21,13 @@ Bundler.require(*Rails.groups)
 module Imaginarium
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
-    config.load_defaults 8.0
+    config.load_defaults 8.1
 
     # Please, add to the `ignore` list any other `lib` subdirectories that do
     # not contain `.rb` files, or that should not be reloaded or eager loaded.
     # Common ones are `templates`, `generators`, or `middleware`, for example.
     config.autoload_lib(ignore: %w[assets tasks])
 
-    config.generators do |generator|
-      generator.orm :active_record, primary_key_type: :uuid
-    end
-
-    config.active_storage.variant_processor = :mini_magick
-    config.i18n.default_locale = :fr
-
-
-    config.action_dispatch.default_headers = {
-      'X-Frame-Options' => 'ALLOWALL',
-      'Access-Control-Allow-Origin' => '*'
-    }
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files
@@ -47,5 +35,16 @@ module Imaginarium
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+    config.active_storage.variant_processor = :mini_magick
+    config.i18n.default_locale = :fr
+
+    config.generators do |generator|
+      generator.orm :active_record, primary_key_type: :uuid
+    end
+
+    config.action_dispatch.default_headers = {
+      'X-Frame-Options' => 'ALLOWALL',
+      'Access-Control-Allow-Origin' => '*'
+    }
   end
 end

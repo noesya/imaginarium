@@ -5,6 +5,7 @@ ruby '3.4.7'
 
 gem "activestorage-scaleway-service"
 gem "aws-sdk-s3"
+gem "benchmark", "~> 0.5.0" # Removed from bundled gems in Ruby 4.0, needed for delayed_job
 gem "bootsnap", require: false
 gem "bootstrap"
 gem "bootstrap5-kaminari-views"
@@ -23,11 +24,11 @@ gem "jbuilder"
 gem "kamifusen"
 gem "kaminari"
 gem "kaminari-i18n"
-gem "ostruct", "~> 0.6.0"
-gem "pg", "~> 1.1"
-gem "puma", "~> 7.0"
+gem "ostruct", "~> 0.6" # Removed from bundled gems in Ruby 4.0, needed for simple-navigation
+gem "pg", "~> 1.6"
+gem "puma", "~> 7.1"
 gem "rack-cors"
-gem "rails", "~> 8.0"
+gem "rails", "~> 8.1"
 gem "sassc-rails"
 gem "simple-navigation"
 gem "simple_form"
@@ -42,13 +43,12 @@ group :development, :test do
 end
 
 group :development do
-  gem "web-console"
   gem "annotaterb"
   gem "http_logger"
+  gem "web-console"
 end
 
 group :test do
   gem "capybara"
-  gem "selenium-webdriver"
   gem "webdrivers"
 end
