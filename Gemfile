@@ -27,7 +27,7 @@ gem "ostruct", "~> 0.6" # Removed from bundled gems in Ruby 4.0, needed for simp
 gem "pg", "~> 1.6"
 gem "puma", "~> 7.1"
 gem "rack-cors"
-gem "rails", "~> 8.1"
+gem "rails", "~> 8.1.0"
 gem "sassc-rails"
 gem "simple-navigation"
 gem "simple_form"
