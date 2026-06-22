@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| 'https://github.com/#{repo}.git' }
 
-ruby "4.0.3"
+ruby "4.0.5"
 
 gem "activestorage-scaleway-service"
 gem "aws-sdk-s3"
@@ -23,9 +23,9 @@ gem "jbuilder"
 gem "kamifusen"
 gem "kaminari"
 gem "kaminari-i18n"
-gem "ostruct", "~> 0.6" # Removed from bundled gems in Ruby 4.0, needed for simple-navigation
+gem "mini_magick"
 gem "pg", "~> 1.6"
-gem "puma", "~> 7.1"
+gem "puma", "~> 8.0"
 gem "rack-cors"
 gem "rails", "~> 8.1.0"
 gem "sassc-rails"
