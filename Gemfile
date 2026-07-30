@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| 'https://github.com/#{repo}.git' }
 
-ruby "4.0.5"
+ruby "4.0.6"
 
 gem "activestorage-scaleway-service"
 gem "aws-sdk-s3"
@@ -34,7 +34,7 @@ gem "simple_form"
 gem "simple_form_bs5_file_input"
 gem "sprockets-rails"
 gem "stability_sdk"
-gem "summernote-rails", git: "https://github.com/noesya/summernote-rails.git"
+gem "summernote-rails", git: "https://github.com/noesya/summernote-rails.git", branch: "master"
 gem "tzinfo-data", platforms: %i[ windows jruby ]
 
 group :development, :test do
