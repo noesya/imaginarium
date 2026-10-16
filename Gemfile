@@ -1,7 +1,7 @@
-source 'https://rubygems.org'
-git_source(:github) { |repo| 'https://github.com/#{repo}.git' }
+source "https://rubygems.org"
+git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "4.0.6"
+ruby "4.0.7"
 
 gem "activestorage-scaleway-service"
 gem "aws-sdk-s3"
@@ -24,7 +24,7 @@ gem "kamifusen"
 gem "kaminari"
 gem "kaminari-i18n"
 gem "mini_magick"
-gem "pg", "~> 1.6"
+gem "pg", "~> 1.7"
 gem "puma", "~> 8.0"
 gem "rack-cors"
 gem "rails", "~> 8.1.0"
